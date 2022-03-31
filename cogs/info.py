@@ -131,9 +131,9 @@ class InfoCommand(commands.Cog):
       cr_2 = format_dt(канал.created_at, 'D')
       slowmod = канал.slowmode_delay
       jump = канал.jump_url
-      wswf1 = канал.nsfw
-      wswf2 = wswf1.replace("True", "Да")
-      nswf = wswf2.replace("False", "нет")
+      wswf1 = str(канал.nsfw)
+      wswf2 = str(wswf1).replace("True", "Да")
+      nswf = str(wswf2).replace("False", "нет")
       if slowmod == 0:
 
         embed=disnake.Embed(title=f"> 🤖 | Канал: {канал.name}", color=0x2e2f33, timestamp=datetime.datetime.now())
@@ -264,8 +264,9 @@ class InfoCommand(commands.Cog):
       x = format_dt(пользователь.joined_at, 'R')
       y = format_dt(пользователь.created_at, 'R')
       out_1 = пользователь.current_timeout
-      boting1 = пользователь.bot
-      ja = boting1
+      bot1 = str(пользователь.bot)
+      bot2 = str(bot1).replace("True", "Да")
+      bot = str(bot2).replace("False", "нет")
       
       if out_1 == None:
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=color, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
@@ -274,7 +275,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='🔼 | Высшая роль:', value=f'{top.mention}', inline=True)
         embed.add_field(name='❓ | Серверный никнейм:', value=f'`{nick}`', inline=True)
         embed.add_field(name='📚 | Роли:', value=f'\n**Кол-во ролей:** `{roles}`', inline=True)
-        embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`\n**Упоминание:** {пользователь.mention}', inline=False)
+        embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{bot}`\n**Упоминание:** {пользователь.mention}', inline=False)
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
         await inter.response.send_message(embed=embed)
