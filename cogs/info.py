@@ -113,7 +113,9 @@ class InfoCommand(commands.Cog):
         jo_2 = format_dt(user.joined_at, 'D')
         falgs = user.public_flags.value
         username = str(user.display_name)
-        ver = user.public_flags.verified_bot
+        ver1 = user.public_flags.verified_bot
+        ver2 = ver1.replace("True", "Да")
+        ver = ver2.replace("False", "нет")
         guild_d = len(user.mutual_guilds)
         embed = disnake.Embed(title=f"{user} | Информация о боте", description=f"Создан: {cr_1} ({cr_2})\nПрисоединился: {jo_1} ({jo_2})\nФлаги: `{falgs}`\nВерифицирован?: `{ver}`\nОбщих серверов: `{guild_d}`\n\n**Прочее:**\n Упоминание: {user.mention}", colour=user.colour)
         embed.set_thumbnail(url=user.avatar)
@@ -127,17 +129,32 @@ class InfoCommand(commands.Cog):
     async def info_channel(self, inter, канал: disnake.TextChannel):
       cr_1 = format_dt(канал.created_at, 'R')
       cr_2 = format_dt(канал.created_at, 'D')
+      slowmod = канал.slowmode_delay
       jump = канал.jump_url
+      wswf1 = канал.nsfw
+      wswf2 = wswf1.replace("True", "Да")
+      nswf = wswf2.replace("False", "нет")
+      if slowmod == 0:
 
-      embed=disnake.Embed(title=f"> 🤖 | Канал: {канал.name}", color=0x2e2f33, timestamp=datetime.datetime.now())
-      embed.add_field(name='> 🍨 | Создан',
-                  value=f"{cr_2}\n({cr_1})", inline=True)
-      embed.add_field(name='> 🍨 | Находится:',
-                  value=f"**В:** `{канал.category}`\n**Позиция:** `{канал.position}`\n**Канал:** [Перейти]({jump})", inline=True)
-      embed.add_field(name='> 🍨 | Прочее:',
-                  value=f"**NSFW:** `{канал.nsfw}`\n**Слоу-Мод:** `{канал.slowmode_delay}сек`", inline=True)
-      embed.set_footer(text=f"ID: {канал.id}", icon_url=f"{inter.author.avatar}")
-      await inter.response.send_message(embed=embed)
+        embed=disnake.Embed(title=f"> 🤖 | Канал: {канал.name}", color=0x2e2f33, timestamp=datetime.datetime.now())
+        embed.add_field(name='> 🍨 | Создан',
+                    value=f"{cr_2}\n({cr_1})", inline=True)
+        embed.add_field(name='> 🍨 | Находится:',
+                    value=f"**В:** `{канал.category}`\n**Позиция:** `{канал.position}`\n**Канал:** [Перейти]({jump})", inline=True)
+        embed.add_field(name='> 🍨 | Прочее:',
+                    value=f"**NSFW:** `{nswf}`", inline=True)
+        embed.set_footer(text=f"ID: {канал.id}", icon_url=f"{inter.author.avatar}")
+        await inter.response.send_message(embed=embed)
+      else:
+        embed=disnake.Embed(title=f"> 🤖 | Канал: {канал.name}", color=0x2e2f33, timestamp=datetime.datetime.now())
+        embed.add_field(name='> 🍨 | Создан',
+                    value=f"{cr_2}\n({cr_1})", inline=True)
+        embed.add_field(name='> 🍨 | Находится:',
+                    value=f"**В:** `{канал.category}`\n**Позиция:** `{канал.position}`\n**Канал:** [Перейти]({jump})", inline=True)
+        embed.add_field(name='> 🍨 | Прочее:',
+                    value=f"**NSFW:** `{nswf}`\n**Слоу-Мод:** `{slowmod}сек`", inline=True)
+        embed.set_footer(text=f"ID: {канал.id}", icon_url=f"{inter.author.avatar}")
+        await inter.response.send_message(embed=embed)
 
     @bot.slash_command(description='Информация о голосовом канале | Voice channel information')
     async def info_voice_channel(self, inter, канал: disnake.VoiceChannel):
@@ -146,7 +163,7 @@ class InfoCommand(commands.Cog):
       jump = канал.jump_url
       users = len(канал.members)
       max = канал.user_limit
-      bit = "https://ru.wikipedia.org/wiki/Битрейт#:~:text=Битре́йт%20(от%20англ.%20bitrate)%20—,пропустить%20этот%20поток%20без%20задержек"
+      bit = "https://ru.wikipedia.org/wiki/Битрейт"
       bit_rate = int(канал.bitrate / 1000) 
       if max == 0:
         embed=disnake.Embed(title=f"> 🤖 | Канал: {канал.name}", color=0x2e2f33, timestamp=datetime.datetime.now())
