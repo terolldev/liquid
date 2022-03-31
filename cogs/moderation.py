@@ -99,8 +99,8 @@ class ModCommand(commands.Cog):
             await inter.response.send_message(embed=embed, ephemeral=True)
         elif причина == None:
             embed=disnake.Embed(title=f'> 🛠️ | Вы были забанены на сервере: {inter.guild.name}', description=f'**Модератор:** {inter.author.mention}\n**Причина:** Без причины', color=0x2e2f33)
-            await пользователь.send(embed=embed)
             await пользователь.ban(reason=f'Mod: {inter.author}/{inter.author.id}')
+            await пользователь.send(embed=embed)
             embed=disnake.Embed(title="> 🎉 | Забанен",
             description=f'**Модератор:** {inter.author.mention}\n**Пользователь:** {пользователь.mention}\n**Причина:** Без причины',
             color=0x2e2f33, timestamp=datetime.datetime.now())
@@ -108,8 +108,8 @@ class ModCommand(commands.Cog):
             await inter.response.send_message(embed=embed)
         else:
             embed=disnake.Embed(title=f'> 🛠️ | Вы были забанены на сервере: {inter.guild.name}', description=f'**Модератор:** {inter.author.mention}\n**Причина:** {причина}', color=0x2e2f33)
-            await пользователь.send(embed=embed)
             await пользователь.ban(reason=f'{причина} (Mod: {inter.author}/{inter.author.id})')
+            await пользователь.send(embed=embed)
             embed=disnake.Embed(title="> 🎉 | Забанен",
             description=f'**Модератор:** {inter.author.mention}\n**Пользователь:** {пользователь.mention}\n**Причина:** {причина}',
             color=0x2e2f33, timestamp=datetime.datetime.now())
