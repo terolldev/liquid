@@ -5,7 +5,6 @@ from disnake.utils import format_dt
 from disnake import ApplicationCommandInteraction
 import datetime
 import os
-import platform
 
 intents = disnake.Intents.default()
 intents.members = True

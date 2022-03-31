@@ -7,7 +7,6 @@ from datetime import datetime, timezone
 import datetime
 from png import *
 from disnake import Webhook
-from CoffeePaginator import Paginator
 from disnake.utils import format_dt
 import asyncio.tasks
 from disnake import TextInputStyle
@@ -15,8 +14,6 @@ from asyncio.tasks import sleep
 import datetime
 import os
 from disnake.ext.commands import has_permissions, MissingPermissions, BotMissingPermissions
-import platform
-from WebServer import keep_alive
 from disnake.errors import *
 import aiohttp
 
@@ -25,14 +22,11 @@ intents.members = True
 
 bot = commands.Bot("l!", intents=intents, test_guild=942485560142995557)
 
-keep_alive()
 
 @bot.event
 async def on_ready():
     print(f"Бот запущен на {bot.user.name}")
     print(f"Disnake.py API версия: {disnake.__version__}")
-    print(f"python версия: {platform.python_version()}")
-    print(f"Запущен на: {platform.system()} {platform.release()} ({os.name})")
     print(f"Кол-во команд: {len(bot.slash_commands)}")
     print(f"Май павелитель: DenTop и TimEiger")
     print("-------------------")
@@ -102,29 +96,6 @@ async def lls(ctx, id):
     await ctx.guild.leave()
   else:
     return
-
-@bot.command()
-async def test_13(ctx):
-    emb1 = disnake.Embed(title='Информация', description='`/links` — Ссылки бота\n`/stats` — Статистика бота\n' +
-            '`/delepovers [создатель]` — Ссылки на разработчиков\n`/about` — Информация о боте\n`/server` — Узнать информацию о сервере\n`/user [пользователь]` — Узнать информацию о участнике\n`/role_info [роль]` — Покажет информация о роли\n`/emoji [кастомное эмоджи]` — Покажет информацию о эмоджи\n`/info_channel [канал]` — Покажет информацию о канале\n`/bug` — Отправить баг\n`/info_voice_channnel [голосовой-канал]` — Покажет информациб о голосовом канале')
-    emb2 = disnake.Embed(title='Утилиты', description='`/avatar [пользователь]` — покажет аватарку пользователя\n' +
-                 '`/random [меньшее число], [большее число]` — покажет число от меньшего до большого' +
-                  '\n`/search_yandex [запрос]` — для поиска в Яндекс\n`/search_google [запрос]` — для поиска в Гугле\n`/search_youtube [запрос]` — для поиска в Ютубе' +
-                   '\n`/random_dog` — рандомная собака\n`/random_cat` — рандомный кот\n`/random_fox` — рандомная лиса' +
-                    '\n`/random_bird` — рандомная птица\n`/ships [пользователь]` — покажет вашу любовь с пользователем'+
-                    '\n`/8ball [вопрос]` — Шар гаданий\n`/random_pass [seed]` — Генерирует рандомный пароль\n`/ben [вопрос]` — Задать вопрос бену\n`/calculator [выбор] [первое_число] [второе_число]` — Посчитать пример с помощью бота\n`/coinflip [сторона]` — Подбросить монетку\n`/fake_ban [пользователь] [причина]` — Фейк бан')
-    emb3 = disnake.Embed(title='Модерация', description='`/clear [сообщений]` — Очистить сообщения\n`/slowmode [время]` — Поставить слоумод в канале\n' +
-                 '`/ban [пользователь] [причина]` — Забанить пользователя\n`/kick [пользователь] [причина]` — Кикнуть пользователя\n`/giverole [пользователь] [роль]` — Выдать роль пользователю\n`/removerole [пользователь] [роль]` — Забрать роль у пользователя\n`/mute [пользователь] [время] [причина]` — Замьютить пользователя\n`/unmute [пользователь] [причина]` — Размьютить пользователя\n`/lock [канал]` — Заблокировать канал для отправки сообщений\n`/unlock [канал]` — Разблокировать канал для отправки сообщений\n`/dm [пользователь] [текст]` — Отправить пользователю сообщение в лс\n`/say` — Сказать от имени бота(ваше имя будет видно)\n`/vote` — Создать голосование')
-    emb4 = disnake.Embed(title='Активности', description='`/create_invite [активность]` — Использовать дискорд активность')
-    emb5 = disnake.Embed(title='Реакции', description='`/hit [пользователь]` — Ударить пользователя\n`/hug [пользователь]` — Обнять пользователя\n`/pat [пользователь]` — погладить пользователя\n`/shot [пользователь]` — выстрельнуть в участника\n`/kiss [пользователь]` — Поцеловать пользователя\n`/sleep` — Уснуть\n`/slap [пользователь]` — Дать пощёчину пользователю\n`/cry` — Плакать\n`/run [пользователь]` — Бежать от пользователя\n`/bite [пользователь]` — Укусить пользователя')
-    emb6 = disnake.Embed(title='Игры', description='`/br` — Сыграть в кости\n`/case` — Открыть кейс из кс го\n`/guess` — Попробуй отгадать')
-    
-    embs = [emb1, emb2, emb3, emb4, emb5, emb6]
-    message = await ctx.send(embed=emb1)
-    
-    pages = Paginator(message, embs, ctx.author, footer=True)
-    await pages.start()
-
 
 @bot.event
 async def on_slash_command_error(interaction, error):

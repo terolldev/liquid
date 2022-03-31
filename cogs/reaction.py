@@ -5,7 +5,6 @@ from disnake import ApplicationCommandInteraction
 import datetime
 import random
 import os
-import platform
 
 intents = disnake.Intents.default()
 intents.members = True

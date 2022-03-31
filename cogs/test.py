@@ -25,7 +25,7 @@ class TestCommand(commands.Cog):
 
 
   @commands.slash_command()
-  async def (self, inter):
+  async def command(self, inter):
     print("This code is ran every time any subcommand is invoked")
 
 
