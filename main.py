@@ -3,7 +3,6 @@ from disnake.ext import commands
 from bottoken import token_id
 import random
 import time
-from Paginator import CreatePaginator
 from datetime import datetime, timezone
 import datetime
 from png import *
