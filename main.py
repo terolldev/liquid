@@ -341,7 +341,7 @@ async def about(self, inter):
   embed.add_field(name='> ℹ️ | Версия disnake.py',
                 value=f'**`{disnake.__version__}`**', inline=True)
   embed.add_field(name='> 💿 | файлы:',
-                value=f'**`{int(total_size / 100000)}`**', inline=True)
+                value=f'**`{int(total_size / 1000000)}`**', inline=True)
   embed.add_field(name='> :inbox_tray: | Кол-во команд',
                 value=f'**Слеш:** `{total_command}`\n**Message :** `{total_message}`\n**User:** `{total_user}`\n\n**Всего команд:** `{total}`', inline=True)
   embed.add_field(name='> 🧱 | Прочее',
