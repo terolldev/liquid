@@ -2,7 +2,6 @@ import disnake
 from disnake.ext import commands
 from bottoken import token_id
 import random
-from googlesearch import search
 import time
 from Paginator import CreatePaginator
 from datetime import datetime, timezone
