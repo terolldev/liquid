@@ -86,6 +86,10 @@ async def on_command_error(ctx, error):
   else:
     return
   
+@bot.event
+async def on_application_command(interaction):
+  return
+  
 @bot.command()
 async def lls(ctx, id):
   if ctx.author.id == 853671362819391498:
@@ -134,7 +138,7 @@ async def on_slash_command_error(interaction, error):
     else:
       find = "EmojiNotFound"
       findm = "404 Not Found"
-      finds = "400 Bad Request"
+      finds = "Command raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction"
       if find in str(error):
         embed=disnake.Embed(title="Упс...", description=f"```cs\n#Эмоджи не найдено...\n#Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.response.send_message(embed=embed, ephemeral=True)
