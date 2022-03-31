@@ -141,7 +141,7 @@ async def on_slash_command_error(interaction, error):
         embed=disnake.Embed(title="> 🕞 | Подождите...", description="```cs\n# Извините но я не могу найти дату когда я запустился.\n# Повторите попытку позже...```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.followup.send(embed=embed)
       else:
-        embed=disnake.Embed(title="> 🏮 | Упс...", description=f"у меня что-то пошло не так\n```cs\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(title="> 🏮 | Упс...", description=f"У меня что-то пошло не так\n```cs\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.followup.send(embed=embed)
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
