@@ -86,11 +86,6 @@ async def on_command_error(ctx, error):
   else:
     return
   
-@bot.event
-async def on_application_command(interaction):
-  await bot.process_commands(interaction)
-  return
-  
 @bot.command()
 async def lls(ctx, id):
   if ctx.author.id == 853671362819391498:
