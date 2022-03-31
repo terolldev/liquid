@@ -55,11 +55,11 @@ async def on_guild_join(guild):
     web = Webhook.from_url('https://discord.com/api/webhooks/957681356505227314/eElGeWW8NEAPDERuxaexKeVtonLvf6Wx3zXRrriNH34UAP6Ch7gADR-QpW9QXB02_LrK', session=session)
     cr_1 = format_dt(guild.created_at, 'D')
     cr_2 = format_dt(guild.created_at, 'R')
-    embed1=disnake.Embed(title=f'> 🏘️ | Бот зашёл на {guild.name} ({guild.id})', description=f'**Участников:** `{guild.member_count}`\n**Бустов:** `{guild.premium_tier}`\n**Дата создания:** {cr_1} ({cr_2})\n**Создатель:** `{guild.owner}` (`{guild.owner.id}`)', color=0x2e2f33)
-    embed1.set_author(name='Liquid', icon_url='https://cdn.discordapp.com/attachments/945707516334059520/957878635283497040/liquid2.png')
+    embed1=disnake.Embed(title=f'> 🏘️ | Бот зашёл на {guild.name} ({guild.id})', description=f'**Участников:** `{guild.member_count}`\n**Бустов:** `{guild.premium_tier}`\n**Дата создания:** {cr_1} ({cr_2})\n**Создатель:** `{guild.owner}` (`{guild.owner.id}`)', color=0x2e2f33, timestamp=datetime.datetime.now())
+    embed1.set_author(name='Liquid', icon_url=bot.user.avatar)
     await web.send(embed=embed1, username="Server?")
-    embed=disnake.Embed(description='**Спасибо за добавление нашего бота**\n> Узнать все команды: `/help`', color=0x2e2f33)
-    embed.set_author(name='Liquid', icon_url='https://cdn.discordapp.com/attachments/945707516334059520/957878635283497040/liquid2.png')
+    embed=disnake.Embed(description='**Спасибо за добавление нашего бота**\n> Узнать все команды: `/help`', color=0x2e2f33, timestamp=datetime.datetime.now())
+    embed.set_author(name='Liquid', icon_url=bot.user.avatar)
     channel = guild.system_channel
     if channel == None:
       channel_1 = await guild.create_text_channel("Liquid Welcome", reason="Bot joined server | Бот зашел на сервер")  
@@ -73,8 +73,8 @@ async def on_guild_remove(guild):
     web = Webhook.from_url('https://discord.com/api/webhooks/957681356505227314/eElGeWW8NEAPDERuxaexKeVtonLvf6Wx3zXRrriNH34UAP6Ch7gADR-QpW9QXB02_LrK', session=session)
     cr_1 = format_dt(guild.created_at, 'D')
     cr_2 = format_dt(guild.created_at, 'R')
-    embed=disnake.Embed(title=f'> 🏘️ | Бот вышел с {guild.name} ({guild.id})', description=f'**Участников:** `{guild.member_count}`\n**Бустов:** `{guild.premium_tier}`\n**Дата создания:** {cr_1} ({cr_2})\n**Создатель:** `{guild.owner}` (`{guild.owner.id}`)', color=0x2e2f33)
-    embed.set_author(name='Liquid', icon_url='https://cdn.discordapp.com/attachments/945707516334059520/957878635283497040/liquid2.png')
+    embed=disnake.Embed(title=f'> 🏘️ | Бот вышел с {guild.name} ({guild.id})', description=f'**Участников:** `{guild.member_count}`\n**Бустов:** `{guild.premium_tier}`\n**Дата создания:** {cr_1} ({cr_2})\n**Создатель:** `{guild.owner}` (`{guild.owner.id}`)', color=0x2e2f33, timestamp=datetime.datetime.now())
+    embed.set_author(name='Liquid', icon_url=bot.user.avatar)
     await web.send(embed=embed, username="Server?")
 
 @bot.event
