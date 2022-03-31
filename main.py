@@ -133,15 +133,13 @@ async def on_slash_command_error(interaction, error):
         await interaction.response.send_message(embed=embed, ephemeral=True)
     else:
       find = "EmojiNotFound"
-      findm = "404 Not Found"
-      finds = "Command raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction"
+      finds = "Command raised an exception: NameError: name 'starttime' is not defined"
       if find in str(error):
         embed=disnake.Embed(title="Упс...", description=f"```cs\n#Эмоджи не найдено...\n#Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.response.send_message(embed=embed, ephemeral=True)
-      elif findm in str(error):
-        return
       elif finds in str(error):
-        return
+        embed=disnake.Embed(title="Подождите...", description="Извините но я не могу найти дату когда я запустился.\nПовторите попытку позже...", color=0x992D22, timestamp=datetime.datetime.now())
+        await interaction.followup.send(embed=embed)
       else:
         embed=disnake.Embed(title="Упс...", description=f"у меня что-то пошло не так\n```cs\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.followup.send(embed=embed)
