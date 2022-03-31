@@ -135,10 +135,10 @@ async def on_slash_command_error(interaction, error):
       find = "EmojiNotFound"
       finds = "Command raised an exception: NameError: name 'starttime' is not defined"
       if find in str(error):
-        embed=disnake.Embed(title="Упс...", description=f"```cs\n#Эмоджи не найдено...\n#Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи\n```", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(title="Упс...", description=f"```cs\n# Эмоджи не найдено...\n# Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.response.send_message(embed=embed, ephemeral=True)
       elif finds in str(error):
-        embed=disnake.Embed(title="Подождите...", description="Извините но я не могу найти дату когда я запустился.\nПовторите попытку позже...", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(title="Подождите...", description="```cs\n# Извините но я не могу найти дату когда я запустился.```\n```cs\n# Повторите попытку позже...```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.followup.send(embed=embed)
       else:
         embed=disnake.Embed(title="Упс...", description=f"у меня что-то пошло не так\n```cs\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
@@ -153,7 +153,7 @@ async def on_message_command_error(interaction, error):
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     if isinstance (error.original, Forbidden):
-        embed=disnake.Embed(title="> 🔔 | Ошибка!", description="```cs\n# У меня недостаточно прав для совершения этого действия\nВыдайте мне роль со всеми правами!\n```",
+        embed=disnake.Embed(title="> 🔔 | Ошибка!", description="```cs\n# У меня недостаточно прав для совершения этого действия```\n```cs\n# Выдайте мне роль со всеми правами!\n```",
         color=0x992D22, timestamp=datetime.datetime.now())
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
