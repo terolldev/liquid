@@ -113,9 +113,9 @@ class InfoCommand(commands.Cog):
         jo_2 = format_dt(user.joined_at, 'D')
         falgs = user.public_flags.value
         username = str(user.display_name)
-        ver1 = user.public_flags.verified_bot
-        ver2 = ver1.replace("True", "Да")
-        ver = ver2.replace("False", "нет")
+        ver1 = str(user.public_flags.verified_bot)
+        ver2 = str(ver1).replace("True", "Да")
+        ver = str(ver2).replace("False", "нет")
         guild_d = len(user.mutual_guilds)
         embed = disnake.Embed(title=f"{user} | Информация о боте", description=f"Создан: {cr_1} ({cr_2})\nПрисоединился: {jo_1} ({jo_2})\nФлаги: `{falgs}`\nВерифицирован?: `{ver}`\nОбщих серверов: `{guild_d}`\n\n**Прочее:**\n Упоминание: {user.mention}", colour=user.colour)
         embed.set_thumbnail(url=user.avatar)
