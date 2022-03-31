@@ -8,7 +8,6 @@ from disnake import ApplicationCommandInteraction
 import datetime
 import aiohttp
 from png import *
-from googlesearch import search
 from disnake import ButtonStyle, ComponentType
 from disnake import *
 
@@ -48,8 +47,7 @@ class UtilCommand(commands.Cog):
         disnake.Option(
               "текст", description="Укажите текст!", type=disnake.OptionType.string, required=True),],)
     async def search(self, inter, поисковик, текст: str):
-      await inter.response.defer()
-      for j in search(текст, tld="co.in", num=2, stop=1, pause=2): 
+        await inter.response.defer()
         if поисковик == 'Yandex':
           ja = текст
           ja = ja.replace(' ', '+')
@@ -59,7 +57,7 @@ class UtilCommand(commands.Cog):
           await inter.followup.send(embed=embed)
         elif поисковик == 'Google':
     
-          embed=disnake.Embed(title="> 🔎 | Поиск в Гугле", description=f"[Ссылка на ваш запрос]({j})", color=0x2e2f33, timestamp=datetime.datetime.now())
+          embed=disnake.Embed(title="> 🔎 | Поиск в Гугле", description=f"[Ссылка на ваш запрос]({ja})", color=0x2e2f33, timestamp=datetime.datetime.now())
           embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
           embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/853672698081050634/957286352427286538/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png')
           await inter.followup.send(embed=embed)
