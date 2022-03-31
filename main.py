@@ -88,6 +88,7 @@ async def on_command_error(ctx, error):
   
 @bot.event
 async def on_application_command(interaction):
+  await bot.process_commands(interaction)
   return
   
 @bot.command()
