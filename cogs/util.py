@@ -49,6 +49,7 @@ class UtilCommand(commands.Cog):
     async def search(self, inter, поисковик, текст: str):
         await inter.response.defer()
         if поисковик == 'Yandex':
+          global ja
           ja = текст
           ja = ja.replace(' ', '+')
           embed=disnake.Embed(title="> 🔎 | Поиск в Яндексе", description=f"[Ссылка на ваш запрос](https://yandex.ru/search/?lr=38&text=" + ja + ")", color=0x2e2f33, timestamp=datetime.datetime.now())
