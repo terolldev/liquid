@@ -158,7 +158,7 @@ async def on_message_command_error(interaction, error):
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     else:
-        embed=disnake.Embed(title="> 🔔 | Упс...", description=f"у меня что-то пошло не так\n```cs\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(title="> 🔔 | Упс...", description=f"```cs\n# У меня что-то пошло не так\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 
@@ -180,32 +180,25 @@ async def on_user_command_error(interaction, error):
     
 @bot.slash_command(description="Статистика бота | Bot statistics")
 async def stats(inter):
-        await inter.response.defer()
-        msg = len(bot.cached_messages)
-        channels = len([member for member in bot.get_all_channels()])
-        cogs_total = len(bot.cogs)
-        cogs_toal = int(cogs_total + 1)
-        ping = round(bot.latency * 1000)
-        uptime = format_dt(starttime, 'R')
-        uptime1 = str(datetime.timedelta(seconds=int(round(time.time()-starttime))))
-        embed = disnake.Embed(title=f'> 🚀 | Статистика',
-                            color=0x2e2f33, timestamp=datetime.datetime.now())
-        embed.add_field(name='> ⌛ | Серверов:',
-                        value=f'`{len(bot.guilds)}`')
-        embed.add_field(name='> 🧭 | Пользователей:',
-                        value=f'**`{len(bot.users)}`**')
-        embed.add_field(name='> 📰 | Каналов:',
-                        value=f'**`{channels}`**')
-        embed.add_field(name='> 🎧 | Ап Тайм:',
-                        value=f'`{uptime1}`')
-        embed.add_field(name='> 🎉 | Запущен:',
-                        value=f'{uptime}')
-        embed.add_field(name='> 📲 | Пинг:',
-                        value=f'**`{ping}`**')
-        embed.add_field(name='> 🧶 | Прочее:',
-                        value=f'**Кол-во сообщение:** `{msg}`\n**Модулей в боте:** `{cogs_toal}`')
-        embed.set_footer(text = inter.author.name, icon_url = inter.author.avatar)
-        await inter.followup.send(embed=embed)
+  await inter.response.defer()
+  msg = len(bot.cached_messages)
+  channels = len([member for member in bot.get_all_channels()])
+  cogs_total = len(bot.cogs)
+  cogs_toal = int(cogs_total + 1)
+  ping = round(bot.latency * 1000)
+  uptime = format_dt(starttime, 'R')
+  uptime1 = str(datetime.timedelta(seconds=int(round(time.time()-starttime))))
+  embed = disnake.Embed(title=f'> 🚀 | Статистика',
+                        color=0x2e2f33, timestamp=datetime.datetime.now())
+  embed.add_field(name='> ⌛ | Серверов:', value=f'`{len(bot.guilds)}`')
+  embed.add_field(name='> 🧭 | Пользователей:', value=f'**`{len(bot.users)}`**')
+  embed.add_field(name='> 📰 | Каналов:', value=f'**`{channels}`**')
+  embed.add_field(name='> 🎧 | Ап Тайм:', value=f'`{uptime1}`')
+  embed.add_field(name='> 🎉 | Запущен:', value=f'{uptime}')
+  embed.add_field(name='> 📲 | Пинг:', value=f'**`{ping}`**')
+  embed.add_field(name='> 🧶 | Прочее:', value=f'**Кол-во сообщение:** `{msg}`\n**Модулей в боте:** `{cogs_toal}`')
+  embed.set_footer(text = inter.author.name, icon_url = inter.author.avatar)
+  await inter.followup.send(embed=embed)
     
 class Dropdown(disnake.ui.Select):
     def __init__(self):
