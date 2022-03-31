@@ -133,10 +133,15 @@ async def on_slash_command_error(interaction, error):
         await interaction.response.send_message(embed=embed, ephemeral=True)
     else:
       find = "EmojiNotFound"
-      findm = "MemberNotFound"
+      findm = "404 Not Found"
+      finds = "400 Bad Request"
       if find in str(error):
         embed=disnake.Embed(title="Упс...", description=f"```cs\n#Эмоджи не найдено...\n#Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.response.send_message(embed=embed, ephemeral=True)
+      elif findm in str(error):
+        return
+      elif finds in str(error):
+        return
       else:
         embed=disnake.Embed(title="Упс...", description=f"у меня что-то пошло не так\n```cs\n#   Подробнее: \n{error}\n```", color=0x992D22, timestamp=datetime.datetime.now())
         await interaction.followup.send(embed=embed)
