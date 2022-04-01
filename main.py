@@ -350,6 +350,8 @@ async def about(self, inter):
   embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
   await inter.followup.send(embed=embed)
 
+#load cogs/
+
 bot.load_extension("cogs.util")
 bot.load_extension("cogs.moderation")
 bot.load_extension("cogs.info")
