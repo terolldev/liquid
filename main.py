@@ -17,6 +17,7 @@ from disnake.ext.commands import has_permissions, MissingPermissions, BotMissing
 from disnake.errors import *
 import aiohttp
 
+
 intents = disnake.Intents.default()
 intents.members = True
 
@@ -200,6 +201,7 @@ async def stats(inter):
   embed.set_footer(text = inter.author.name, icon_url = inter.author.avatar)
   await inter.followup.send(embed=embed)
     
+#bot command help
 class Dropdown(disnake.ui.Select):
     def __init__(self):
 
@@ -349,6 +351,8 @@ async def about(self, inter):
   embed.set_thumbnail(url=bot.user.avatar)
   embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
   await inter.followup.send(embed=embed)
+
+#load cogs/
 
 bot.load_extension("cogs.util")
 bot.load_extension("cogs.moderation")
