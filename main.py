@@ -245,7 +245,7 @@ class Dropdown(disnake.ui.Select):
                   '\n`/search [поисковик] [текст]` — Найти в поиске ваш текст' +
                    '\n`/random_dog` — рандомная собака\n`/random_cat` — рандомный кот\n`/random_fox` — рандомная лиса' +
                     '\n`/random_bird` — рандомная птица\n`/ships [пользователь]` — покажет вашу любовь с пользователем'+
-                    '\n`/8ball [вопрос]` — Шар гаданий\n`/random_pass [seed]` — Генерирует рандомный пароль\n`/ben [вопрос]` — Задать вопрос бену\n`/calculator [выбор] [первое_число] [второе_число]` — Посчитать пример с помощью бота\n`/coinflip [сторона]` — Подбросить монетку\n`/fake_ban [пользователь] [причина]` — Фейк бан',
+                    '\n`/8ball [вопрос]` — Шар гаданий\n`/random_pass [seed]` — Генерирует рандомный пароль\n`/meme` — Рандомные мем\n`/ben [вопрос]` — Задать вопрос бену\n`/calculator [выбор] [первое_число] [второе_число]` — Посчитать пример с помощью бота\n`/coinflip [сторона]` — Подбросить монетку\n`/fake_ban [пользователь] [причина]` — Фейк бан',
             color=0x2e2f33, timestamp=datetime.datetime.now())
             embed.set_footer(text=f"© Liquid 2021-2022. Все права защищены.", icon_url="https://cdn.discordapp.com/attachments/824353537080557569/952513431267868722/Frame_21.png")
             await interaction.response.edit_message(embed=embed)
@@ -306,7 +306,7 @@ async def help(interaction):
     await interaction.response.defer()
     embed=disnake.Embed(title="> 📖 | Команды", description="Чтобы узнать подробнее о командах используйте меню ниже!", color=0x2e2f33, timestamp=datetime.datetime.now())
     embed.add_field(name='🔎 | Информация', value='`/links` `/stats` `/delepovers` `/about` `/server` `/user` `/role_info` `/emoji` `/info_channel` `/bug` `/info_voice_channel`', inline=False)
-    embed.add_field(name='🔨 | Утилиты', value='`/avatar` `/random` `/search` `/random_dog` `/random_cat` `/random_fox` `/random_bird` `/ships` `/8ball` `/random_pass` `/ben` `/calculator` `/conflip` `/fake_ban`', inline=False)
+    embed.add_field(name='🔨 | Утилиты', value='`/avatar` `/random` `/search` `/random_dog` `/random_cat` `/random_fox` `/random_bird` `/ships` `/8ball` `/random_pass` `/meme` `/ben` `/calculator` `/conflip` `/fake_ban`', inline=False)
     embed.add_field(name='🔧 | Модерация', value='`/clear` `/slowmode` `/ban` `/kick` `/giverole` `/removerole` `/mute` `/unmute` `/lock` `/unlock` `/dm` `/say` `/vote`', inline=False)
     embed.add_field(name='🚀 | Активности', value='`/create_invite`', inline=False)
     embed.add_field(name='👍 | Реакции', value='`/hit` `/hug` `/pat` `/shot` `/kiss` `/sleep` `/slap` `/cry` `/run` `/bite`', inline=False)
