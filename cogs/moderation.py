@@ -22,7 +22,7 @@ class ModCommand(commands.Cog):
     @bot.user_command(name="Кикнуть", description="Кикнуть пользователя | User kick", default_permission="kick_members")
     async def kick_member(self, inter, member: disnake.Member):
         if member == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -48,7 +48,7 @@ class ModCommand(commands.Cog):
     @bot.user_command(name="Забанить", description="Забанить пользователя | User ban", default_permission="ban_members")
     async def ban_member(self, inter, member: disnake.Member):
         if member == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -67,7 +67,7 @@ class ModCommand(commands.Cog):
               "причина", description="Укажите причину!", type=disnake.OptionType.string, required=False),],)
     async def kick(self, inter, пользователь: disnake.Member, причина=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -97,7 +97,7 @@ class ModCommand(commands.Cog):
               "причина", description="Укажите причину!", type=disnake.OptionType.string, required=False),],)
     async def ban(self, inter, пользователь: disnake.Member, причина=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -129,7 +129,7 @@ class ModCommand(commands.Cog):
     async def slowmode(self, inter, время: int):
       if время == 0:
         if время == inter.channel.slowmode_delay:
-            embed=disnake.Embed(description="**Причина:**\n> Слоумод уже отключен в этом канале!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Слоумод уже отключен в этом канале!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -141,11 +141,10 @@ class ModCommand(commands.Cog):
           await inter.channel.edit(slowmode_delay=время)
           await inter.response.send_message(embed=embed)
       elif время == inter.channel.slowmode_delay:
-        embed = disnake.Embed(title="> 🔔 | Ошибка",
-           description=f"```cs\n# Нельзя указать число!\nСлоу-мод уже на этом времени\n```",
-            color=0x992D22, timestamp=datetime.datetime.now())
-        embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-        await inter.response.send_message(embed=embed, ephemeral=True)
+            embed=disnake.Embed(description="**Причина:**\n> Слоумод уже на этом времени!", color=0xed4947, timestamp=datetime.datetime.now())
+            embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
+            embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
+            await inter.response.send_message(embed=embed, ephemeral=True)
       elif время < 60:
         embed = disnake.Embed(title="> ✅ | Слоумод",
          description=f"**Модератор:** {inter.author.mention}\n**Слоумод:** {int(время / 1)} секунд",
@@ -213,7 +212,7 @@ class ModCommand(commands.Cog):
       out_1 = пользователь.current_timeout
       if out_1 == None:
         if пользователь.bot == True:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать бота!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать бота!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -221,7 +220,7 @@ class ModCommand(commands.Cog):
           minuts = минуты * 60
           if минуты < 60:
             if пользователь == inter.author:
-                embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+                embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
                 embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
                 embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
                 await inter.response.send_message(embed=embed, ephemeral=True)
@@ -245,7 +244,7 @@ class ModCommand(commands.Cog):
                 await пользователь.send(embed=embed)
           elif минуты > 60:
             if пользователь == inter.author:
-                embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+                embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
                 embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
                 embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
                 await inter.response.send_message(embed=embed, ephemeral=True)
@@ -268,9 +267,10 @@ class ModCommand(commands.Cog):
                 embed=disnake.Embed(title=f'> 🛠️ | Вы были замьючены на сервере: {inter.guild.name}', description=f'**Модератор:** {inter.author.mention}\n**Время:** {int(минуты//60)} час {int(минуты%60)} минут\n**Причина:** {причина}', color=0x2e2f33)
                 await пользователь.send(embed=embed)
       else:
-        embed=disnake.Embed(title='> 🔔 | Ошибка!', description="```cs\n# Пользователь уже замьючен\n```", color=0x992D22, timestamp=datetime.datetime.now())
-        embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-        await inter.response.send_message(embed=embed, ephemeral=True)
+            embed=disnake.Embed(description="**Причина:**\n> Пользователь уже замьючен!", color=0xed4947, timestamp=datetime.datetime.now())
+            embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
+            embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
+            await inter.response.send_message(embed=embed, ephemeral=True)
         
     #un mute
     @commands.has_permissions(manage_messages=True)
@@ -284,7 +284,7 @@ class ModCommand(commands.Cog):
         out_1 = пользователь.current_timeout
       
         if out_1 == None:
-            embed=disnake.Embed(description="**Причина:**\n> Пользователь не замьючен!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Пользователь не замьючен!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)

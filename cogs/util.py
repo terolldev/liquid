@@ -30,7 +30,10 @@ class UtilCommand(commands.Cog):
         ),],)
     async def random(self, inter, мин, макс):
         if мин > макс:
-            await inter.response.send_message(embed=disnake.Embed(title='> 🔔 | Ошибка!', description="```cs\n# Меньшее число больше чем Большее\n```", color=0x992D22), ephemeral=True)
+            embed=disnake.Embed(description="**Причина:**\n> Меньшее число, больше чем большее число!", color=0xed4947, timestamp=datetime.datetime.now())
+            embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
+            embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
+            await inter.response.send_message(embed=embed, ephemeral=True)
         else:
             embed=disnake.Embed(title="> 📉 | Рандомное число!", 
             description=f'```\n{random.randint(мин,макс)}\n```', 
@@ -177,12 +180,12 @@ class UtilCommand(commands.Cog):
         ),],)
     async def ships(self, inter, пользователь=None):
         if пользователь.bot == True:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать бота!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать бота!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)

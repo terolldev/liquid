@@ -108,7 +108,7 @@ async def on_slash_command_error(interaction, error):
         await interaction.response.send_message(embed=embed, ephemeral=True)
     if isinstance (error, commands.BotMissingPermissions):
         embed=disnake.Embed(description=f"**Причина:**\n> `{error}",
-        color=0x992D22, timestamp=datetime.datetime.now())
+        color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -116,24 +116,24 @@ async def on_slash_command_error(interaction, error):
       times = round(error.retry_after, 2)
       if times < 60:
         embed=disnake.Embed(description=f"**Причина:**\n> Подождите: {int(times / 1)} секунд",
-        color=0x992D22, timestamp=datetime.datetime.now())
+        color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
       elif times > 60:
         embed=disnake.Embed(description=f"**Причина:**\n> Подождите: \n# {int(times/60)} минут {int(times%60)} секунд",
-        color=0x992D22, timestamp=datetime.datetime.now())
+        color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     if isinstance (error, commands.EmojiNotFound):
-      embed=disnake.Embed(description=f"**Причина:**\n> Эмоджи не найдено, укажите правильно", color=0x992D22, timestamp=datetime.datetime.now())
+      embed=disnake.Embed(description=f"**Причина:**\n> Эмоджи не найдено, укажите правильно", color=0xed4947, timestamp=datetime.datetime.now())
       embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
       embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
       await interaction.response.send_message(embed=embed, ephemeral=True)
       await interaction.followup.send(embed=embed, ephemeral=True)
     if isinstance (error.original, Forbidden):
-        embed=disnake.Embed(description="**Причина:**\n> У меня недостаточно прав", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description="**Причина:**\n> У меня недостаточно прав", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -141,15 +141,15 @@ async def on_slash_command_error(interaction, error):
       find = "EmojiNotFound"
       finds = "Command raised an exception: NameError: name 'starttime' is not defined"
       if find in str(error):
-        embed=disnake.Embed(description=f"**Причина:**\n> Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description=f"**Причина:**\n> Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.response.send_message(embed=embed, ephemeral=True)
       elif finds in str(error):
-        embed=disnake.Embed(description="**Причина:**\n> Извините но я не могу найти дату когда я запустился.\n# Повторите попытку позже...", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description="**Причина:**\n> Извините но я не могу найти дату когда я запустился.\n# Повторите попытку позже...", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Подождите...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.followup.send(embed=embed)
       else:
-        embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.followup.send(embed=embed)
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -157,17 +157,17 @@ async def on_slash_command_error(interaction, error):
 @bot.event
 async def on_message_command_error(interaction, error):
     if isinstance (error, MissingPermissions):
-        embed=disnake.Embed(description="**Причина:**\n> У вас недостаточно прав", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description="**Причина:**\n> У вас недостаточно прав", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     if isinstance (error.original, Forbidden):
-        embed=disnake.Embed(description="**Причина:**\n> У меня недостаточно прав", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description="**Причина:**\n> У меня недостаточно прав", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     else:
-        embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
@@ -175,17 +175,17 @@ async def on_message_command_error(interaction, error):
 @bot.event
 async def on_user_command_error(interaction, error):
     if isinstance (error, MissingPermissions):
-        embed=disnake.Embed(description="**Причина:**\n> У вас недостаточно прав", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description="**Причина:**\n> У вас недостаточно прав", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     if isinstance (error.original, Forbidden):
-        embed=disnake.Embed(description="**Причина:**\n> У меня недостаточно прав", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description="**Причина:**\n> У меня недостаточно прав", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         embed.set_footer(text=f"{interaction.author}", icon_url=f"{interaction.author.avatar}")
         await interaction.response.send_message(embed=embed, ephemeral=True)
     else:
-        embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0x992D22, timestamp=datetime.datetime.now())
+        embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.response.send_message(embed=embed, ephemeral=True)
     

@@ -30,9 +30,10 @@ class ActivityCommand(commands.Cog):
         """
 
         if not inter.user.voice:
-            embed=disnake.Embed(title="> 🔔 | Ошибка!", description="Вы не в голосовом канале!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Вы не в голосовом канале!", color=0xed4947, timestamp=datetime.datetime.now())
+            embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-            return await inter.response.send_message(embed=embed, ephemeral=True)
+            await inter.response.send_message(embed=embed, ephemeral=True)
         voice_channel = inter.user.voice.channel
         link = await voice_channel.create_invite(reason='Activity created',
                                                  target_type=disnake.InviteTarget.embedded_application,

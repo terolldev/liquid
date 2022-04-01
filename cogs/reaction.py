@@ -21,7 +21,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=True),],)
     async def kiss(self, inter, пользователь=None):
       if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -46,7 +46,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def hit(self, inter, пользователь=None):
       if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -88,7 +88,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def pat(self, inter, пользователь=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -128,7 +128,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def hug(self, inter, пользователь=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -170,7 +170,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def shot(self, inter, пользователь=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -222,7 +222,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def slap(self, inter, пользователь=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -278,7 +278,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def run(self, inter, пользователь=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
@@ -320,7 +320,7 @@ class ReactCommand(commands.Cog):
                 "пользователь", description="Укажите пользователя!", type=disnake.OptionType.user, required=False),],)
     async def bite(self, inter, пользователь=None):
         if пользователь == inter.author:
-            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0x992D22, timestamp=datetime.datetime.now())
+            embed=disnake.Embed(description="**Причина:**\n> Нельзя указать самого себя!", color=0xed4947, timestamp=datetime.datetime.now())
             embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed, ephemeral=True)
