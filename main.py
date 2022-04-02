@@ -330,7 +330,7 @@ async def help(interaction):
 @bot.slash_command(description="Информация о боте | Bot Information")
 async def about(self, inter):
   total_size = 0
-  start_path = 'internal_site.liquid' # To get size of current directory for path, dirs, files in os.walk(start_path): 
+  start_path = '.' # To get size of current directory for path, dirs, files in os.walk(start_path): 
   for path, dirs, files in os.walk(start_path):
     for f in files: 
       fp = os.path.join(path, f) 
