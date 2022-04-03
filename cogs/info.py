@@ -208,10 +208,10 @@ class InfoCommand(commands.Cog):
             "emoji", description="Укажите айди или укажите эмоджи", type=disnake.OptionType.string, required=True,
         ),],)
     async def emoji(self, inter, emoji: disnake.Emoji):
-        ani1 = str(emoji.animated)
-        ani2 = ani1.replace("True", "Да")
-        ani3 = ani2.replace("False", "Нет")
-        ani = ani3.replace("None", "404")
+      ani1 = str(emoji.animated)
+      ani2 = ani1.replace("True", "Да")
+      ani3 = ani2.replace("False", "Нет")
+      ani = ani3.replace("None", "404")
       if emoji.guild == None:
         await inter.response.send_message(embed=disnake.Embed(description="Эмоджи на найдено", color=0x992D22))
       else:
