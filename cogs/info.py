@@ -18,35 +18,6 @@ class InfoCommand(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    #@bot.slash_command(name="топ", description="Показать топ участников по айди")
-    #async def top(self, inter):
-      #await inter.response.defer()
-      #id = inter.guild.id
-      #guild = await bot.fetch_guild(id)
-      #members = guild.members
-      #await inter.followup.send_message(members)
-
-    global DELEVOPERS
-    DELEVOPERS = ["TimEiger", "DenTop"]
-
-    @bot.slash_command(description='Узнать информацию о создателе | Find out information about the creator', options=[
-        disnake.Option(
-            "разработчик", type=disnake.OptionType.string, choices=DELEVOPERS, required=True
-            ),],)
-    async def delevopers(self, inter: disnake.CommandInteraction, разработчик=None):
-        if разработчик == "TimEiger":
-            embed1 = disnake.Embed(title="TimEiger:",
-            description="[GitHub1](https://github.com/TimEiger)\n[Twitch](https://www.twitch.tv/tim_eiger)", 
-            color=0x2e2f33, timestamp=datetime.datetime.now())
-            embed1.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-            await inter.response.send_message(embed=embed1)
-        elif разработчик == "DenTop":
-            embed2 = disnake.Embed(title="DenTop", 
-            description="[Github](https://github.com/DenTop555)\n[Youtube](https://www.youtube.com/channel/UCvH5UOeMbNvxo-54e1gZ_Gw)", color=0x2e2f33,
-            timestamp=datetime.datetime.now())
-            embed2.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-            await inter.response.send_message(embed=embed2)
-
     @bot.slash_command(description="Дополнительные ссылки | Additional links")
     async def links(self, inter):
         embed=disnake.Embed(title="🔗 | Ссылки", color=0x2e2f33, timestamp=datetime.datetime.now())
@@ -64,7 +35,7 @@ class InfoCommand(commands.Cog):
       ha2 = ha0.replace("high", "Высокая")
       ha3 = ha2.replace("medium", "Средняя")
       ha4 = ha3.replace("low", "Низкая")
-      ha = ha4.replace("none", "null")
+      ha = c
       total_member = inter.guild.member_count
       max_member = inter.guild.max_members
       total_channel = len(inter.guild.channels)
@@ -170,7 +141,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='> 🍨 | Создан',
                     value=f"{cr_2}\n({cr_1})", inline=True)
         embed.add_field(name='> 🍨 | Стат',
-                    value=f"[БитРейт]({bit}): {bit_rate}\n\n**Лимит учасников:** `{users}/∞`\n\n**Регион:** {канал.rtc_region}", inline=True)
+                    value=f"[БитРейт]({bit}): {bit_rate}\n\n**Лимит учасников:** {users}/∞\n\n**Регион:** {канал.rtc_region}", inline=True)
         embed.add_field(name='> 🍨 | Прочее',
                     value=f"**Упоминание:** {канал.mention}\n\n**Позиция:** {канал.position}", inline=True)
         embed.set_footer(text=f"ID: {канал.id}", icon_url=f"{inter.author.avatar}")
@@ -180,7 +151,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='> 🍨 | Создан',
                     value=f"{cr_2}\n({cr_1})", inline=True)
         embed.add_field(name='> 🍨 | Стат',
-                    value=f"[БитРейт]({bit}): {bit_rate}\n\n**Лимит учасников:** `{users}/{max}`\n\n**Регион:** {канал.rtc_region}", inline=True)
+                    value=f"[БитРейт]({bit}): {bit_rate}\n\n**Лимит учасников:** {users}/{max}\n\n**Регион:** {канал.rtc_region}", inline=True)
         embed.add_field(name='> 🍨 | Прочее',
                     value=f"**Упоминание:** {канал.mention}\n\n**Позиция:** {канал.position}", inline=True)
         embed.set_footer(text=f"ID: {канал.id}", icon_url=f"{inter.author.avatar}")
@@ -237,13 +208,17 @@ class InfoCommand(commands.Cog):
             "emoji", description="Укажите айди или укажите эмоджи", type=disnake.OptionType.string, required=True,
         ),],)
     async def emoji(self, inter, emoji: disnake.Emoji):
+      ani1 = str(emoji.animated)
+      ani2 = ani1.replace("True", "Да")
+      ani3 = ani2.replace("False", "Нет")
+      ani = ani3.replace("None", "404")
       if emoji.guild == None:
         await inter.response.send_message(embed=disnake.Embed(description="Эмоджи на найдено", color=0x992D22))
       else:
         cr_1 = format_dt(emoji.created_at, 'R')
         embed=disnake.Embed(title=f"> 👑 | О Эмоджи", color=0x2e2f33, timestamp=datetime.datetime.now())
         embed.add_field(name='> 🍨 | Создана',
-                value=f"{cr_1}\n**Анимированный?:** {emoji.animated}\n**С сервера:** {emoji.guild}({emoji.guild_id})", inline=True)
+                value=f"{cr_1}\n**Анимированный?:** {ani}\n**С сервера:** {emoji.guild}({emoji.guild_id})", inline=True)
         embed.set_image(url=emoji.url)
         embed.set_footer(text=f"id: {emoji.id}", icon_url=f"{inter.author.avatar}")
         
