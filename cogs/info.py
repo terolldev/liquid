@@ -35,7 +35,7 @@ class InfoCommand(commands.Cog):
       ha2 = ha0.replace("high", "Высокая")
       ha3 = ha2.replace("medium", "Средняя")
       ha4 = ha3.replace("low", "Низкая")
-      ha = c
+      ha = ha4.replace("none", "Нету")
       total_member = inter.guild.member_count
       max_member = inter.guild.max_members
       total_channel = len(inter.guild.channels)
