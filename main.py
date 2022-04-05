@@ -151,7 +151,6 @@ async def on_slash_command_error(interaction, error):
       else:
         embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
-        await interaction.followup.send(embed=embed)
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 @bot.event
