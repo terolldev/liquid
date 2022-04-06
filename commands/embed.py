@@ -54,13 +54,21 @@ class Embed1(disnake.ui.Modal):
         if input['title'] == None:
             embed=disnake.Embed(description=f"{input['des']}")
             embed.set_footer(text=f"{input['footer']}")
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
         elif input['footer'] == None:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}")
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
         elif input['title'] and input['footer'] == None:
             embed=disnake.Embed(description=f"{input['des']}")
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
         else:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}")
             embed.set_footer(text=f"{input['footer']}")
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
         
 
 class Embed(commands.Cog):
