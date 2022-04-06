@@ -1,7 +1,7 @@
 import datetime
 from asyncio import sleep
 import disnake
-from disnake import commands
+from disnake.ext import commands
 
 intents = disnake.Intents.default()
 intents.members = True
