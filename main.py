@@ -256,5 +256,6 @@ bot.load_extension("commands.reaction")
 bot.load_extension("commands.case_cs")
 bot.load_extension("commands.textinput")
 bot.load_extension("commands.embed")
+bot.load_extension("commands.help")
 
 bot.run(token_id)
