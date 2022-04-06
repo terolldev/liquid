@@ -43,6 +43,10 @@ class InfoCommand(commands.Cog):
       voice_channel = len(inter.guild.voice_channels)
       roles_1 = len(inter.guild.roles)
       roles = int(roles_1 - 1)
+      cat1 = len(inter.guild.categories)
+      t1 = len(inter.guild.channels)
+      total_channel = int(t1 - cat1)
+      
       bot = len(list(filter(lambda m: m.bot, inter.guild.members)))
       totals_members = int(total_member - bot)
       bar1 = str(inter.guild.premium_progress_bar_enabled)
@@ -56,7 +60,7 @@ class InfoCommand(commands.Cog):
         
         embed=disnake.Embed(title=f"> 🏜️ | Информация о сервере {inter.guild.name}", description=f"**ID:** {inter.guild.id}", color=0x2e2f33, timestamp=datetime.datetime.now())
         embed.add_field(name='👥 **| Участники:**', value=f'**Всего:** `{total_member}/{max_member}`\n**Боты:** `{bot}`\n**Участники:** `{totals_members}`\n**Влaделец:** <@!{inter.guild.owner_id}>', inline=True)
-        embed.add_field(name='⚓ **| Каналы:**', value=f'**Всего категорий:** `{len(inter.guild.categories)}`\n**Всего Каналов:** `{total_channel}`\n**Текстовые:** `{len(inter.guild.text_channels)}`\n**Голосовые:** `{voice_channel}`\n**Трибун:** `{len(inter.guild.stage_channels)}`\n', inline=True)
+        embed.add_field(name='⚓ **| Каналы:**', value=f'**Всего категорий:** `{cat1}`\n**Всего Каналов:** `{total_channel}`\n**Текстовые:** `{len(inter.guild.text_channels)}`\n**Голосовые:** `{voice_channel}`\n**Трибун:** `{len(inter.guild.stage_channels)}`\n', inline=True)
         embed.add_field(name='🔖 **| Информация:**', value=f'**Кол-во ролей:** `{roles}`\n**Эмоджи:** `{len(inter.guild.emojis)}`\n**Стикеры:** `{len(inter.guild.stickers)}`', inline=True)
         embed.add_field(name='🚀 **| Бусты:**', value=f'**Кол-во бустов:** `{inter.guild.premium_subscription_count}`\n**Уровень буста:** `{inter.guild.premium_tier}`\n**Шкала прогресса бустов:** `{bar}`', inline=True)
         embed.add_field(name='🔧 **| Прочее:**', value=f'**Проверка сервера:** `{ha}`\n**Макс размер файлов:** `{file}мб`\n**Дата создание сервера:** \n{cr_1} \n({cr_2})', inline=True)

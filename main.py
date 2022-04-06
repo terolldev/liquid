@@ -361,14 +361,14 @@ async def about(self, inter):
   embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
   await inter.followup.send(embed=embed)
 
-#load cogs/
+#load commands/
 
-bot.load_extension("cogs.util")
-bot.load_extension("cogs.moderation")
-bot.load_extension("cogs.info")
-bot.load_extension("cogs.activity")
-bot.load_extension("cogs.reaction")
-bot.load_extension("cogs.case_cs")
-bot.load_extension("cogs.textinput")
+bot.load_extension("commands.util")
+bot.load_extension("commands.moderation")
+bot.load_extension("commands.info")
+bot.load_extension("commands.activity")
+bot.load_extension("commands.reaction")
+bot.load_extension("commands.case_cs")
+bot.load_extension("commands.textinput")
 
 bot.run(token_id)
