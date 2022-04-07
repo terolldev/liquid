@@ -257,5 +257,6 @@ bot.load_extension("commands.case_cs")
 bot.load_extension("commands.textinput")
 bot.load_extension("commands.embed")
 bot.load_extension("commands.help")
+#bot.load_extension("commands.button")
 
 bot.run(token_id)

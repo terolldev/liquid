@@ -7,7 +7,7 @@ intents = disnake.Intents.default()
 intents.members = True
 intents.emojis = True
 
-bot = commands.Bot("l!", intents=intents, test_guild="942485560142995557")
+bot = commands.Bot("l!", intents=intents, test_guild=942485560142995557)
 
 class Dropdown(disnake.ui.Select):
     def __init__(self):
