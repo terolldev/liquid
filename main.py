@@ -210,42 +210,6 @@ async def stats(inter):
   embed.set_footer(text = inter.author.name, icon_url = inter.author.avatar)
   await inter.followup.send(embed=embed)
 
-
-@bot.slash_command(description="Информация о боте | Bot Information")
-async def about(self, inter):
-  total_size = 0
-  start_path = '.' # To get size of current directory for path, dirs, files in os.walk(start_path): 
-  for path, dirs, files in os.walk(start_path):
-    for f in files: 
-      fp = os.path.join(path, f) 
-      total_size += os.path.getsize(fp)
-  await inter.response.defer()
-  total_command1 = len(bot.slash_commands)
-  total_command = int(total_command1 - 2)
-  total_message = len(bot.message_commands)
-  total_user = len(bot.user_commands)
-  cr_2 = format_dt(bot.user.created_at, 'D')
-  cr_1 = format_dt(bot.user.created_at, 'R')
-  total = int(total_command + total_message + total_user )
-  embed=disnake.Embed(title="> 🤖 | О боте", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
-  embed.add_field(name='🍨 Разработчики:',
-                value=f'\n**`DenTop#6149\nTimEiger#4524`**', inline=True)
-  embed.add_field(name='> ✈️ | Язык бота:',
-                value=f'**`Disnake.py`**', inline=True)
-  embed.add_field(name='> ℹ️ | Префикс бота:',
-                value=f'**`/`**', inline=True)
-  embed.add_field(name='> ℹ️ | Версия disnake.py',
-                value=f'**`{disnake.__version__}`**', inline=True)
-  embed.add_field(name='> 💿 | файлы:',
-                value=f'**`{int(total_size / 1000000)}`**Кб', inline=True)
-  embed.add_field(name='> :inbox_tray: | Кол-во команд',
-                value=f'**Слеш:** `{total_command}`\n**Message :** `{total_message}`\n**User:** `{total_user}`\n\n**Всего команд:** `{total}`', inline=True)
-  embed.add_field(name='> 🧱 | Прочее',
-                value=f'**Бот:**\n**Имя:** {bot.user}\n**Создан:** {cr_2} ({cr_1})\n**Тэги:** {bot.user.locale}', inline=False)
-  embed.set_thumbnail(url=bot.user.avatar)
-  embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
-  await inter.followup.send(embed=embed)
-
 #load commands/
 
 bot.load_extension("commands.util")
@@ -258,5 +222,6 @@ bot.load_extension("commands.textinput")
 bot.load_extension("commands.embed")
 bot.load_extension("commands.help")
 #bot.load_extension("commands.button")
+bot.load_extension("bd.main")
 
 bot.run(token_id)
