@@ -349,7 +349,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=False)
         embed.add_field(name='🔼 | Высшая роль:', value=f'{top}', inline=False)
         embed.add_field(name='📚 | Роли:', value=f'\n**Кол-во ролей:** `{roles}`', inline=True)
-        embed.add_field(name='📚 | Упомянание:', value=f'{пользователь.mention}', inline=True)
+        embed.add_field(name='📚 | Упомянание:', value=пользователь.mention, inline=True)
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`', inline=True)
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
