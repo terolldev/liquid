@@ -26,7 +26,7 @@ class InfoCommand(commands.Cog):
         embed=disnake.Embed(title="`{timestamp}`", description="Use `/embed` in `footer`",
          color=0x2e2f33, timestamp=datetime.datetime.now())
       else:
-        embed=disnake.Embed(title="Virable All", description="`{timestamp}`, `{author_name}`",
+        embed=disnake.Embed(title="Virable All", description="`{timestamp}`",
         color=0x2e2f33, timestamp=datetime.datetime.now())
 
       await inter.response.send_message(embed=embed)

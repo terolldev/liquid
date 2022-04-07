@@ -18,7 +18,7 @@ class Embed1(disnake.ui.Modal):
         components = [
           disnake.ui.TextInput(
               label="Автор",
-              placeholder="Указать автора команды -> {author_name}",
+              placeholder="Укажите текст",
               custom_id="author",
               style=TextInputStyle.short,
               min_length=1,
