@@ -64,9 +64,6 @@ class Embed1(disnake.ui.Modal):
           if input['footer'] == "{timestamp}":
             embed=disnake.Embed(description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
             embed.set_author(name=f"{input['author']}")
-          elif input['author'] == "{author_name}":
-            embed=disnake.Embed(description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
-            embed.set_author(name=f"{input['author']}")
           else:
             embed=disnake.Embed(description=f"{input['des']}")
             embed.set_footer(text=f"{input['footer']}")
@@ -78,23 +75,14 @@ class Embed1(disnake.ui.Modal):
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
             embed.set_footer(text=f"{input['footer']}")
         elif input['footer'] == None:
-          if input['author'] == "{author_name}":
-            embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
-            embed.set_author(name=inter.author)
-          else:
-            embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
-            embed.set_author(name=f"{input['author']}")
-            await inter.response.send_message("Успешно", ephemeral=True)
-            await inter.channel.send(embed=embed)
+          embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
+          embed.set_author(name=f"{input['author']}")
+          await inter.response.send_message("Успешно", ephemeral=True)
+          await inter.channel.send(embed=embed)
         elif input['title'] and input['footer'] and input['author'] == None:
             embed=disnake.Embed(description=f"{input['des']}", colour=disnake.Colour.random())
         else:
           if input['footer'] == "{timestamp}":
-            if input['author'] == "{author_name}":
-              embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
-              embed.set_footer(text=f"{input['footer']}")
-              embed.set_author(name=inter.author)
-            else:
               embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
               embed.set_author(name=f"{input['author']}")
           else:
