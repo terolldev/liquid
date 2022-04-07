@@ -60,10 +60,12 @@ class Embed1(disnake.ui.Modal):
         )
       async def callback(self, inter: disnake.ModalInteraction):
         input = inter.text_values
+        input['footer'] = input['footer'].replace("{timestamp}", " ")
         if input['title'] == None:
           if input['footer'] == "{timestamp}":
             embed=disnake.Embed(description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
             embed.set_author(name=f"{input['author']}")
+            embed.set_footer(text=f"{input['footer']}")
           else:
             embed=disnake.Embed(description=f"{input['des']}")
             embed.set_footer(text=f"{input['footer']}")
@@ -71,6 +73,7 @@ class Embed1(disnake.ui.Modal):
         elif input['author'] == None:
           if input['footer'] == "{timestamp}":
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
+            embed.set_footer(text=f"{input['footer']}")
           else:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
             embed.set_footer(text=f"{input['footer']}")
@@ -85,6 +88,7 @@ class Embed1(disnake.ui.Modal):
           if input['footer'] == "{timestamp}":
               embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
               embed.set_author(name=f"{input['author']}")
+              embed.set_footer(text=f"{input['footer']}")
           else:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
             embed.set_footer(text=f"{input['footer']}")
