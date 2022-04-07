@@ -93,8 +93,8 @@ class Embed1(disnake.ui.Modal):
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
             embed.set_footer(text=f"{footer}")
             embed.set_author(name=f"{input['author']}")
-        await inter.response.send_message("Успешно", ephemeral=True)
         await inter.channel.send(embed=embed)
+        await inter.response.send_message("Успешно", ephemeral=True)
 
 class Embed(commands.Cog):
 
