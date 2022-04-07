@@ -16,6 +16,15 @@ class Embed1(disnake.ui.Modal):
       def __init__(self):
         # The details of the modal, and its components
         components = [
+          disnake.ui.TextInput(
+              label="Автор",
+              placeholder="Укажите текст",
+              custom_id="author",
+              style=TextInputStyle.short,
+              min_length=1,
+              max_length=30,
+              required=False
+            ),
             disnake.ui.TextInput(
               label="Заголовок",
               placeholder="Укажите текст",
@@ -40,7 +49,7 @@ class Embed1(disnake.ui.Modal):
               custom_id="footer",
               style=TextInputStyle.paragraph,
               min_length=1,
-              max_length=305,
+              max_length=30,
               required=False
             ),
         ]
@@ -54,19 +63,27 @@ class Embed1(disnake.ui.Modal):
         if input['title'] == None:
             embed=disnake.Embed(description=f"{input['des']}")
             embed.set_footer(text=f"{input['footer']}")
+            embed.set_author(name=f"{input['author']}")
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
+        elif input['author'] == None:
+            embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
+            embed.set_footer(text=f"{input['footer']}")
             await inter.response.send_message("Успешно", ephemeral=True)
             await inter.channel.send(embed=embed)
         elif input['footer'] == None:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
+            embed.set_author(name=f"{input['author']}")
             await inter.response.send_message("Успешно", ephemeral=True)
             await inter.channel.send(embed=embed)
-        elif input['title'] and input['footer'] == None:
+        elif input['title'] and input['footer'] and input['author'] == None:
             embed=disnake.Embed(description=f"{input['des']}", colour=disnake.Colour.random())
             await inter.response.send_message("Успешно", ephemeral=True)
             await inter.channel.send(embed=embed)
         else:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
             embed.set_footer(text=f"{input['footer']}")
+            embed.set_author(name=f"{input['author']}")
             await inter.response.send_message("Успешно", ephemeral=True)
             await inter.channel.send(embed=embed)
         
