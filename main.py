@@ -222,6 +222,5 @@ bot.load_extension("commands.textinput")
 bot.load_extension("commands.embed")
 bot.load_extension("commands.help")
 #bot.load_extension("commands.button")
-bot.load_extension("bd.main")
 
 bot.run(token_id)
