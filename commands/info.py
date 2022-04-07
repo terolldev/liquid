@@ -10,18 +10,18 @@ intents = disnake.Intents.default()
 intents.members = True
 intents.emojis = True
 
-bot = commands.Bot("l!", intents=intents, test_guild="942485560142995557")
+bot = commands.Bot("l!", intents=intents, test_guild=[942485560142995557, 949370734059323472])
 
 
 class InfoCommand(commands.Cog):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-    virable = ["{timestamp}"]
+    virable = ["{timestamp}", "author"]
 
     @bot.slash_command(name="virable", description="Info for virable in bot", options=[disnake.Option(
                 "virable", description="Select virable", type=disnake.OptionType.string, choices=virable, required=False),],)
-    async def virable (self, inter, virable):
+    async def virable (self, inter, virable=None):
       if virable == "{timestamp}":
         embed=disnake.Embed(title="`{timestamp}`", description="Use `/embed` in footer",
          color=0x2e2f33, timestamp=datetime.datetime.now())

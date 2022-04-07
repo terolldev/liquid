@@ -18,7 +18,7 @@ class Embed1(disnake.ui.Modal):
         components = [
           disnake.ui.TextInput(
               label="Автор",
-              placeholder="Укажите текст",
+              placeholder="Указать автора команды -> {author_name}",
               custom_id="author",
               style=TextInputStyle.short,
               min_length=1,
@@ -83,6 +83,12 @@ class Embed1(disnake.ui.Modal):
             await inter.response.send_message("Успешно", ephemeral=True)
             await inter.channel.send(embed=embed)
         elif input['footer'] == None:
+          if input['author'] == "{author_name}":
+            embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
+            embed.set_author(name=inter.author)
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
+          else:
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
             embed.set_author(name=f"{input['author']}")
             await inter.response.send_message("Успешно", ephemeral=True)
@@ -95,6 +101,12 @@ class Embed1(disnake.ui.Modal):
           if input['footer'] == "{timestamp}":
             embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
             embed.set_author(name=f"{input['author']}")
+            await inter.response.send_message("Успешно", ephemeral=True)
+            await inter.channel.send(embed=embed)
+          elif input['author'] == "{author_name}":
+            embed=disnake.Embed(title=f"{input['title']}", description=f"{input['des']}", colour=disnake.Colour.random())
+            embed.set_footer(text=f"{input['footer']}")
+            embed.set_author(name=inter.author)
             await inter.response.send_message("Успешно", ephemeral=True)
             await inter.channel.send(embed=embed)
           else:

@@ -21,7 +21,7 @@ import aiohttp
 intents = disnake.Intents.default()
 intents.members = True
 
-bot = commands.Bot("l!", intents=intents, test_guild=942485560142995557)
+bot = commands.Bot("l!", intents=intents, test_guild=[942485560142995557, 949370734059323472])
 
 
 @bot.event
