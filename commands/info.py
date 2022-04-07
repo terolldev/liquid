@@ -362,7 +362,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='🔼 | Высшая роль:', value=f'{top.mention}', inline=False)
         embed.add_field(name='🎟️ | Мут истекает:', value=f'{out}', inline=False)
         embed.add_field(name='📚 | Роли:', value=f'\n**Кол-во ролей:** `{roles}`', inline=True)
-        embed.add_field(name='📚 | Упомянание:', value=f'{пользователь.mention}', inline=True)
+        embed.add_field(name='📚 | Упомянание:', value=пользователь.mention, inline=True)
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`\n', inline=True)
         embed.set_thumbnail(url=avatar)
         await inter.response.send_message(embed=embed)
