@@ -31,7 +31,7 @@ class Embed1(disnake.ui.Modal):
               custom_id="title",
               style=TextInputStyle.short,
               min_length=1,
-              max_length=305,
+              max_length=50,
               required=False
             ),
             disnake.ui.TextInput(
@@ -40,7 +40,7 @@ class Embed1(disnake.ui.Modal):
               custom_id="des",
               style=TextInputStyle.paragraph,
               min_length=1,
-              max_length=305,
+              max_length=1000,
               required=True,
             ),
               disnake.ui.TextInput(
@@ -60,7 +60,7 @@ class Embed1(disnake.ui.Modal):
         )
       async def callback(self, inter: disnake.ModalInteraction):
         input = inter.text_values
-        footer = input['footer'].replace("{timestamp}", " ")
+        footer = input['footer'].replace("{timestamp}", "")
         if input['title'] == None:
           if "{timestamp}" in input['footer']:
             embed=disnake.Embed(description=f"{input['des']}", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
