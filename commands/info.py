@@ -357,7 +357,7 @@ class InfoCommand(commands.Cog):
       else:
         out = format_dt(out_1, 'R')
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
-        embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at==None}({x==None})', inline=False)
+        embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=False)
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=False)
         embed.add_field(name='🔼 | Высшая роль:', value=f'{top.mention}', inline=False)
         embed.add_field(name='🎟️ | Мут истекает:', value=f'{out}', inline=False)
