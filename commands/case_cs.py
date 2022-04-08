@@ -22,6 +22,8 @@ bot = commands.Bot("l!", intents=intents, test_guild=942485560142995557)
 class CsCommand(commands.Cog):
   def __init__(self, bot: commands.Bot):
         self.bot = bot
+  global pol
+  pol = "Данный кейс не имеет никакое отношение к игре"
 
   @commands.cooldown(rate=1, per=30, type=commands.BucketType.user)
   @bot.slash_command(description="Кейсы в дискорде")
@@ -32,38 +34,38 @@ class CsCommand(commands.Cog):
                 title="Кейс Кс-го",
                 description=f"Информация о вашем дропе:\nНазвание: ||{drop_case}|| {random.choice(stattrack)}\nИзнос: {random.choice(pat)}",
                 color=disnake.Colour.blue(), timestamp=datetime.datetime.now())   
-        embed.set_footer(text=inter.author, icon_url=inter.author.avatar)
+        embed.set_footer(text=pol, icon_url=inter.author.avatar)
       
     elif drop_case == purple:
       embed=disnake.Embed(
               title="Кейс Кс-го",
               description=f"Информация о вашем дропе:\nНазвание: ||{drop_case}|| {random.choice(stattrack)}\nИзнос: {random.choice(pat)}",
                 color=disnake.Colour.purple(), timestamp=datetime.datetime.now())
-      embed.set_footer(text=inter.author, icon_url=inter.author.avatar)
+      embed.set_footer(text=pol, icon_url=inter.author.avatar)
     elif drop_case == seriy:
         embed=disnake.Embed(
                 title="Кейс Кс-го",
                 description=f"Информация о вашем дропе:\nНазвание: ||{drop_case}|| {random.choice(stattrack)}\nИзнос: {random.choice(pat)}",
                 color=disnake.Colour.from_rgb(54, 57, 62), timestamp=datetime.datetime.now())
-        embed.set_footer(text=inter.author, icon_url=inter.author.avatar)
+        embed.set_footer(text=pol, icon_url=inter.author.avatar)
     elif drop_case == golden:
         embed=disnake.Embed(
                 title="Кейс Кс-го",
                 description=f"Информация о вашем дропе:\nНазвание: ||{drop_case}|| {random.choice(stattrack)}\nИзнос: {random.choice(pat)}",
                 color=disnake.Colour.gold(), timestamp=datetime.datetime.now())
-        embed.set_footer(text=inter.author, icon_url=inter.author.avatar)
+        embed.set_footer(text=pol, icon_url=inter.author.avatar)
     elif drop_case == red:
         embed=disnake.Embed(
               title="Кейс Кс-го",
               description=f"Информация о вашем дропе:\nНазвание: ||{drop_case}|| {random.choice(stattrack)}\nИзнос: {random.choice(pat)}",
                 color=disnake.Colour.red(), timestamp=datetime.datetime.now())
-        embed.set_footer(text=inter.author, icon_url=inter.author.avatar)
+        embed.set_footer(text=pol, icon_url=inter.author.avatar)
     elif drop_case == pink:
         embed=disnake.Embed(
                 title="Кейс Кс-го",
                 description=f"Информация о вашем дропе:\nНазвание: ||{drop_case}||{random.choice(stattrack)}\nИзнос: {random.choice(pat)}",
                 color=disnake.Colour.from_rgb(255, 20, 147), timestamp=datetime.datetime.now())
-        embed.set_footer(text=inter.author, icon_url=inter.author.avatar)
+        embed.set_footer(text=pol, icon_url=inter.author.avatar)
     await inter.response.send_message(embed=embed)
     
 def setup(bot: commands.Bot):

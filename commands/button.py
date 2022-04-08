@@ -31,7 +31,7 @@ class Button(commands.Cog):
 
     @bot.slash_command(name="тест", description="ты как эту команду нашел?")
     async def command_button(self, interaction):
-        await interaction.response.send_messaage(embed=disnake.Embed(title="Test!"))
+        await interaction.response.send_messaage(embed=disnake.Embed(title="Test!"), view=RowButtons())
 
 def setup(bot: commands.Bot):
     bot.add_cog(Button(bot))
