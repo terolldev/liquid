@@ -55,8 +55,6 @@ class InfoCommand(commands.Cog):
       total_command = int(total_command1 - 2)
       total_message = len(bot.message_commands)
       total_user = len(bot.user_commands)
-      cr_2 = format_dt(bot.user.created_at, 'D')
-      cr_1 = format_dt(bot.user.created_at, 'R')
       total = int(total_command + total_message + total_user )
       embed=disnake.Embed(title="> 🤖 | О боте", colour=disnake.Colour.random(), timestamp=datetime.datetime.now())
       embed.add_field(name='🍨 Разработчики:',
@@ -72,7 +70,7 @@ class InfoCommand(commands.Cog):
       embed.add_field(name='> :inbox_tray: | Кол-во команд',
                     value=f'**Слеш:** `{total_command}`\n**Message :** `{total_message}`\n**User:** `{total_user}`\n\n**Всего команд:** `{total}`', inline=True)
       embed.add_field(name='> 🧱 | Прочее',
-                    value=f'**Бот:**\n**Имя:** {bot.user}\n**Создан:** {cr_2} ({cr_1})\n**Тэги:** {bot.user.locale}', inline=False)
+                    value=f'**Бот:**\n**Имя:** {bot.user}\n**Тэги:** {bot.user.locale}', inline=False)
       embed.set_thumbnail(url=bot.user.avatar)
       embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
       await inter.response.send(embed=embed)
