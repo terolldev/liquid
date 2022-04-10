@@ -71,7 +71,7 @@ class InfoCommand(commands.Cog):
                     value=f'**Слеш:** `{total_command}`\n**Message :** `{total_message}`\n**User:** `{total_user}`\n\n**Всего команд:** `{total}`', inline=True)
       embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/942757781444919326/4413217bee412fbade4595df65ce796d.png?size=1024")
       embed.set_footer(text=f"942757781444919326", icon_url=f"{inter.author.avatar}")
-      await inter.response.send(embed=embed)
+      await inter.response.send_message(embed=embed)
 
     @bot.slash_command(description="Узнать о сервере | Learn about the server")
     async def server(self, inter):
