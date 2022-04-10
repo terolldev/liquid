@@ -70,7 +70,6 @@ class InfoCommand(commands.Cog):
       embed.add_field(name='> :inbox_tray: | Кол-во команд',
                     value=f'**Слеш:** `{total_command}`\n**Message :** `{total_message}`\n**User:** `{total_user}`\n\n**Всего команд:** `{total}`', inline=True)
       embed.set_thumbnail(url=bot.user.avatar)
-      embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
       await inter.response.send(embed=embed)
 
     @bot.slash_command(description="Узнать о сервере | Learn about the server")
