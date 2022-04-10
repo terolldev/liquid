@@ -51,7 +51,6 @@ class InfoCommand(commands.Cog):
         for f in files: 
           fp = os.path.join(path, f) 
           total_size += os.path.getsize(fp)
-      await inter.response.defer()
       total_command1 = len(bot.slash_commands)
       total_command = int(total_command1 - 2)
       total_message = len(bot.message_commands)
@@ -76,7 +75,7 @@ class InfoCommand(commands.Cog):
                     value=f'**Бот:**\n**Имя:** {bot.user}\n**Создан:** {cr_2} ({cr_1})\n**Тэги:** {bot.user.locale}', inline=False)
       embed.set_thumbnail(url=bot.user.avatar)
       embed.set_footer(text=f"bot id: {bot.user.id}", icon_url=f"{inter.author.avatar}")
-      await inter.followup.send(embed=embed)
+      await inter.response.send(embed=embed)
 
     @bot.slash_command(description="Узнать о сервере | Learn about the server")
     async def server(self, inter):
