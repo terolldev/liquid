@@ -38,6 +38,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='> Поддержка', value='[Тыкни сюда](https://discord.gg/8BJM52ZeNt)', inline=True)
         embed.add_field(name='> Disnake GitHub', value='[Тыкни сюда](https://github.com/DisnakeDev/disnake)', inline=True)
         embed.add_field(name='> Статус бота', value='[Тыкни сюда](https://stats.uptimerobot.com/1qZljs6jYl)', inline=True)
+        embed.add_field(name='> Документация', value='[Тыкни сюда](https://docs.liquid-bot.ga/)', inline=True)
         embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
         await inter.response.send_message(embed=embed)
     
