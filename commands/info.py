@@ -292,6 +292,7 @@ class InfoCommand(commands.Cog):
       bot1 = str(пользователь.bot)
       bot2 = str(bot1).replace("True", "Да")
       bot = str(bot2).replace("False", "нет")
+      bad = пользователь.public_flags
       global hs1, hs2, hs3
       if out_1 == None:
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=color, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
@@ -303,6 +304,13 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{bot}`\n**Упоминание:** {пользователь.mention}', inline=False)
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
+        if bad.hypesquad_brilliance == True:
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs2}", inline=False)
+        elif bad.hypesquad_balance == True:
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs1}", inline=False)
+        elif bad.hypesquad_bravery == True:
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs3}", inline=False)
+        await inter.response.send_message(embed=embed)
       else:
         out = format_dt(out_1, 'R')
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
@@ -314,7 +322,13 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='🎟️ | Мут истекает:', value=f'{out}', inline=True)
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{bot}`\n**Упоминание:** {пользователь.mention}', inline=False)
         embed.set_thumbnail(url=avatar)
-      await inter.response.send_message(embed=embed)
+        if bad.hypesquad_brilliance == True:
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs2}", inline=False)
+        elif bad.hypesquad_balance == True:
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs1}", inline=False)
+        elif bad.hypesquad_bravery == True:
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs3}", inline=False)
+        await inter.response.send_message(embed=embed)
   
   
     @bot.slash_command(description='Информация о пользователе | User information', options=[
