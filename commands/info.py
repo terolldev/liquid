@@ -347,12 +347,6 @@ class InfoCommand(commands.Cog):
       bad = пользователь.public_flags
       
       if out_1 == None:
-        if bad.hypesquad_brilliance == True:
-            embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
-        elif bad.hypesquad_balance == True:
-            embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
-        elif bad.hypesquad_bravery == True:
-            embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=False)
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=False)
@@ -362,15 +356,15 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`', inline=True)
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
-        await inter.response.send_message(embed=embed)
-      else:
-        out = format_dt(out_1, 'R')
         if bad.hypesquad_brilliance == True:
             embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
         elif bad.hypesquad_balance == True:
             embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
         elif bad.hypesquad_bravery == True:
             embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
+        await inter.response.send_message(embed=embed)
+      else:
+        out = format_dt(out_1, 'R')
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=False)
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=False)
@@ -380,6 +374,12 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Упомянание:', value=пользователь.mention, inline=True)
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`\n', inline=True)
         embed.set_thumbnail(url=avatar)
+        if bad.hypesquad_brilliance == True:
+            embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
+        elif bad.hypesquad_balance == True:
+            embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
+        elif bad.hypesquad_bravery == True:
+            embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
         await inter.response.send_message(embed=embed)
         
     @bot.message_command(name="Ответь сообщением")
