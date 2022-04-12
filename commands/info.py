@@ -354,11 +354,11 @@ class InfoCommand(commands.Cog):
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
         if bad.hypesquad_brilliance == True:
-            embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs2}", inline=False)
         elif bad.hypesquad_balance == True:
-            embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs1}", inline=False)
         elif bad.hypesquad_bravery == True:
-            embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs3}", inline=False)
         await inter.response.send_message(embed=embed)
       else:
         out = format_dt(out_1, 'R')
