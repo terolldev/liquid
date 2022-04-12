@@ -362,7 +362,6 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`', inline=True)
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
-        await inter.response.send_message(embed=embed)
       else:
         out = format_dt(out_1, 'R')
         if bad.hypesquad_brilliance == True:
@@ -380,7 +379,7 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Упомянание:', value=пользователь.mention, inline=True)
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`\n', inline=True)
         embed.set_thumbnail(url=avatar)
-        await inter.response.send_message(embed=embed)
+      await inter.response.send_message(embed=embed)
         
     @bot.message_command(name="Ответь сообщением")
     async def say_message(self, inter, message: disnake.Message):
