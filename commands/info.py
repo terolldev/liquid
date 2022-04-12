@@ -274,7 +274,12 @@ class InfoCommand(commands.Cog):
         await inter.response.send_message(embed=embed)
   
     @bot.user_command(name="Инфо о участнике")
-    async def users(self, inter, пользователь: disnake.Member):
+    async def users(self, inter, пользователь: disnake.Member=None):
+      if пользователь == None:
+        пользователь=inter.author
+      else:
+        пользователь=пользователь
+        
       name = пользователь.name
       avatar = пользователь.avatar
       color = пользователь.colour
@@ -291,8 +296,17 @@ class InfoCommand(commands.Cog):
       bot1 = str(пользователь.bot)
       bot2 = str(bot1).replace("True", "Да")
       bot = str(bot2).replace("False", "нет")
-      
+      hs1 = "<:hs1:963352358660767744>"
+      hs2 = "<:hs2:963353267570622474>"
+      hs3 = "<:hs3:963353360042455050>"
+      bad = пользователь.public_flags
       if out_1 == None:
+        if bad.hypesquad_brilliance == True:
+            embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
+        elif bad.hypesquad_balance == True:
+            embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
+        elif bad.hypesquad_bravery == True:
+            embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=color, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=True)
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=True)
@@ -302,9 +316,13 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{bot}`\n**Упоминание:** {пользователь.mention}', inline=False)
         embed.set_thumbnail(url=avatar)
         embed.set_footer(text=f"ID: {пользователь.id}", icon_url=f"{inter.author.avatar}")
-        await inter.response.send_message(embed=embed)
       else:
-        
+        if bad.hypesquad_brilliance == True:
+            embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
+        elif bad.hypesquad_balance == True:
+            embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
+        elif bad.hypesquad_bravery == True:
+            embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
         out = format_dt(out_1, 'R')
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=True)
@@ -315,7 +333,6 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='🎟️ | Мут истекает:', value=f'{out}', inline=True)
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{bot}`\n**Упоминание:** {пользователь.mention}', inline=False)
         embed.set_thumbnail(url=avatar)
-        await inter.response.send_message(embed=embed)
   
   
     @bot.slash_command(description='Информация о пользователе | User information', options=[
