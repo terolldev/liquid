@@ -5,6 +5,7 @@ from disnake.utils import format_dt
 from disnake import ApplicationCommandInteraction
 import datetime
 import os
+from png import *
 
 intents = disnake.Intents.default()
 intents.members = True
@@ -292,9 +293,6 @@ class InfoCommand(commands.Cog):
       bot2 = str(bot1).replace("True", "Да")
       bot = str(bot2).replace("False", "нет")
       global hs1, hs2, hs3
-      hs1 = "<:hs1:963352358660767744>"
-      hs2 = "<:hs2:963353267570622474>"
-      hs3 = "<:hs3:963353360042455050>"
       if out_1 == None:
         embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=color, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=True)
@@ -328,7 +326,6 @@ class InfoCommand(commands.Cog):
         пользователь=inter.author
       else:
         пользователь=пользователь
-
       name = пользователь.name
       avatar = пользователь.avatar
       color = пользователь.colour
@@ -375,13 +372,13 @@ class InfoCommand(commands.Cog):
         embed.add_field(name='📚 | Прочее:', value=f'**Бот:** `{ja}`\n', inline=True)
         embed.set_thumbnail(url=avatar)
         if bad.hypesquad_brilliance == True:
-            embed.add_field(name="HypeSquad", value=f"{hs2}", inline=False)
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs2}", inline=False)
         elif bad.hypesquad_balance == True:
-            embed.add_field(name="HypeSquad", value=f"{hs1}", inline=False)
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs1}", inline=False)
         elif bad.hypesquad_bravery == True:
-            embed.add_field(name="HypeSquad", value=f"{hs3}", inline=False)
+          embed.add_field(name="🈹 | HypeSquad", value=f"{hs3}", inline=False)
         await inter.response.send_message(embed=embed)
-        
+
     @bot.message_command(name="Ответь сообщением")
     async def say_message(self, inter, message: disnake.Message):
       cont = message.content
