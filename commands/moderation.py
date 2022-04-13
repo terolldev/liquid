@@ -33,16 +33,7 @@ class ModCommand(commands.Cog):
               color=0x2e2f33, timestamp=datetime.datetime.now())
             embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
             await inter.response.send_message(embed=embed)
-    #delete mesage message context
-    @commands.has_permissions(manage_messages=True)
-    @bot.message_command(name="Удалить сообщение")
-    async def delete_message(self, inter, message):
-        embed=disnake.Embed(title="> ⛔ | Удалить сообщение",
-        description=f'Вы успешно удалили сообщение от пользователя - {message.author.mention}\n\nЕго содержание: {message.content}',
-        color=0x2e2f33, timestamp=datetime.datetime.now())
-        embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-        await message.delete()
-        await inter.response.send_message(embed=embed, ephemeral=True)
+
     #ban user command
     @commands.has_permissions(ban_members = True)
     @bot.user_command(name="Забанить", description="Забанить пользователя | User ban", default_permission="ban_members")
