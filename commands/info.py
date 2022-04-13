@@ -409,7 +409,7 @@ class InfoCommand(commands.Cog):
       if message.author.discriminator == "0000":
         await inter.response.send_message(embed=disnake.Embed(description="Ошибка, не удалось идентифицировать пользователя.\nПовторите попытку мозже..", color=disnake.Colour.red()), ephemeral=True)
       else:
-        if message.embed == None:
+        if message.embeds == None:
           if msg == None:
             cont = message.content
             embed=disnake.Embed(description=f"Содержание: [{cont}]({message.jump_url})", color=0x2e2f33, timestamp=datetime.datetime.now())
