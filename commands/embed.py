@@ -1,3 +1,4 @@
+
 from time import sleep
 import disnake
 from disnake.ext import commands
@@ -60,6 +61,9 @@ class Embed1(disnake.ui.Modal):
         )
       async def callback(self, inter: disnake.ModalInteraction):
         input = inter.text_values
+        input['author'] = input['author'].replace('{author}', f'{inter.author}')
+        input['des'] = input['des'].replace('{author.mention}', f'{inter.author.mention}')
+
         footer = input['footer'].replace("{timestamp}", "")
         if input['title'] == None:
           if "{timestamp}" in input['footer']:

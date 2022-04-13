@@ -18,7 +18,7 @@ class InfoCommand(commands.Cog):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-    virable = ["{timestamp}"]
+    virable = ["{timestamp}", "{author}"]
 
     @bot.slash_command(name="virable", description="Info for virable in bot", options=[disnake.Option(
                 "virable", description="Select virable", type=disnake.OptionType.string, choices=virable, required=False),],)
@@ -26,8 +26,11 @@ class InfoCommand(commands.Cog):
       if virable == "{timestamp}":
         embed=disnake.Embed(title="`{timestamp}`", description="Use `/embed` in `footer`",
          color=0x2e2f33, timestamp=datetime.datetime.now())
+      elif virable == "{author}":
+        embed=disnake.Embed(title="`{timestamp}`", description="Use `/embed` in `author`",
+         color=0x2e2f33, timestamp=datetime.datetime.now())
       else:
-        embed=disnake.Embed(title="Virable All", description="`{timestamp}`",
+        embed=disnake.Embed(title="Virable All", description="`{timestamp}`, `{author}",
         color=0x2e2f33, timestamp=datetime.datetime.now())
 
       await inter.response.send_message(embed=embed)
