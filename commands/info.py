@@ -406,7 +406,7 @@ class InfoCommand(commands.Cog):
       y1 = format_dt(message.created_at, 'D')
       msg = message.edited_at
       react =  "Скоро..." #message.reactions.emoji
-      if message.author.discriminator == 0000:
+      if message.author.discriminator == "0000":
         await inter.response.send_message(embed=disnake.Embed(description="Ошибка, не удалось идентифицировать пользователя.\nПовторите попытку мозже..", color=disnake.Colour.red()), ephemeral=True)
       else:
         if msg == None:
