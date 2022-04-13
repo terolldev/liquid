@@ -406,24 +406,27 @@ class InfoCommand(commands.Cog):
       y1 = format_dt(message.created_at, 'D')
       msg = message.edited_at
       react =  "Скоро..." #message.reactions.emoji
-      if msg == None:
-        cont = message.content
-        embed=disnake.Embed(description=f"Содержание: [{cont}]({message.jump_url})", color=0x2e2f33, timestamp=datetime.datetime.now())
-        embed.add_field(name='📚 | Дата отправки:', value=f'{y}\n({y1})', inline=True)
-        embed.add_field(name='📚 | Прочее:', value=f'Закреплено: `{message.pinned}`\n Реакции: `{react}`', inline=False)
-        embed.set_footer(text=f"{message.author}", icon_url=f"{message.author.avatar}")
-        await inter.response.send_message(embed=embed, ephemeral=True)
-
+      if message.author.discriminator == 0000:
+        await inter.response.send_message(embed=disnake.Embed(description="Ошибка, не удалось идентифицировать пользователя.\nПовторите попытку мозже..", color=disnake.Colour.red()), ephemeral=True)
       else:
-        x = format_dt(msg, 'R')
-        x1 = format_dt(msg, 'D')
-        cont = message.content
-        embed=disnake.Embed(description=f"Содержание: [{cont}]({message.jump_url})", color=0x2e2f33, timestamp=datetime.datetime.now())
-        embed.add_field(name='📚 | Дата отправки:', value=f'{y}\n({y1})', inline=True)
-        embed.add_field(name='📚 | Дата последнего редактирование:', value=f'{x}\n({x1})', inline=True)
-        embed.add_field(name='📚 | Прочее:', value=f'Закреплено: `{message.pinned}`\n Реакции: `{react}`', inline=False)
-        embed.set_footer(text=f"{message.author}", icon_url=f"{message.author.avatar}")
-        await inter.response.send_message(embed=embed, ephemeral=True)
+        if msg == None:
+          cont = message.content
+          embed=disnake.Embed(description=f"Содержание: [{cont}]({message.jump_url})", color=0x2e2f33, timestamp=datetime.datetime.now())
+          embed.add_field(name='📚 | Дата отправки:', value=f'{y}\n({y1})', inline=True)
+          embed.add_field(name='📚 | Прочее:', value=f'Закреплено: `{message.pinned}`\n Реакции: `{react}`', inline=False)
+          embed.set_footer(text=f"{message.author}", icon_url=f"{message.author.avatar}")
+          await inter.response.send_message(embed=embed, ephemeral=True)
+
+        else:
+          x = format_dt(msg, 'R')
+          x1 = format_dt(msg, 'D')
+          cont = message.content
+          embed=disnake.Embed(description=f"Содержание: [{cont}]({message.jump_url})", color=0x2e2f33, timestamp=datetime.datetime.now())
+          embed.add_field(name='📚 | Дата отправки:', value=f'{y}\n({y1})', inline=True)
+          embed.add_field(name='📚 | Дата последнего редактирование:', value=f'{x}\n({x1})', inline=True)
+          embed.add_field(name='📚 | Прочее:', value=f'Закреплено: `{message.pinned}`\n Реакции: `{react}`', inline=False)
+          embed.set_footer(text=f"{message.author}", icon_url=f"{message.author.avatar}")
+          await inter.response.send_message(embed=embed, ephemeral=True)
         
       
     @bot.message_command(name='Закладка')
