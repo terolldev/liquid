@@ -358,7 +358,7 @@ class InfoCommand(commands.Cog):
       bad = пользователь.public_flags
       
       if out_1 == None:
-        embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
+        embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=color, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=False)
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=False)
         embed.add_field(name='🔼 | Высшая роль:', value=f'{top}', inline=False)
@@ -376,7 +376,7 @@ class InfoCommand(commands.Cog):
         await inter.response.send_message(embed=embed)
       else:
         out = format_dt(out_1, 'R')
-        embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=0x2e2f33, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
+        embed=disnake.Embed(title=f'> 👤 | Информация о {name}', color=color, timestamp=datetime.datetime.now(), description=f'[{name}#{disc}](https://discord.com/users/{пользователь.id})')
         embed.add_field(name='🧂 | Присоединился:', value=f'{joined_at}({x})', inline=False)
         embed.add_field(name='🍜 | Дата регистрации:', value=f'{created_at}({y})', inline=False)
         embed.add_field(name='🔼 | Высшая роль:', value=f'{top}', inline=False)
