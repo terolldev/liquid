@@ -183,7 +183,6 @@ class ModCommand(commands.Cog):
               "роль", description="Укажите роль!", type=disnake.OptionType.role, required=True),],)
   
     async def removerole(self, inter, пользователь: disnake.Member, роль: disnake.Role):
-      
       await пользователь.remove_roles(роль)
       embed=disnake.Embed(title="> ✅ |  Изменение ролей", description=f"**Модератор:** {inter.author.mention}\n**Пользователь:** {пользователь.mention}\n**Роль:** <@&{роль.id}>", color=0x2e2f33, timestamp=datetime.datetime.now())
       embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")

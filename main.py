@@ -140,14 +140,19 @@ async def on_slash_command_error(interaction, error):
     else:
       find = "EmojiNotFound"
       finds = "Command raised an exception: NameError: name 'starttime' is not defined"
+      findr = "NotFound: 404 Not Found (error code: 10011): Unknown Role"
       if find in str(error):
         embed=disnake.Embed(description=f"**Причина:**\n> Попробуйте другое эмоджи, или добавьте меня на сервер где это эмоджи", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.response.send_message(embed=embed, ephemeral=True)
       elif finds in str(error):
         embed=disnake.Embed(description="**Причина:**\n> Извините но я не могу найти дату когда я запустился.\n# Повторите попытку позже...", color=0xed4947, timestamp=datetime.datetime.now())
-        embed.set_author(name='Подождите...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
+        embed.set_author(name='Ошибка', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
         await interaction.followup.send(embed=embed)
+      elif findr in str(error):
+        embed=disnake.Embed(description="**Причина:**\n> Вы указали роль которое не существует на этом сервере, повторите попытку,\n и укажите роль которая есть на этом сервере", color=0xed4947, timestamp=datetime.datetime.now())
+        embed.set_author(name='Подождите...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
+        await interaction.response.send_message(embed=embed, ephemeral=True)
       else:
         embed=disnake.Embed(description=f"**Причина:**\n> Подробнее:\n{error}", color=0xed4947, timestamp=datetime.datetime.now())
         embed.set_author(name='Упс...', icon_url='https://cdn.discordapp.com/attachments/959338373988900934/959396824173658132/749876351628083221.gif')
