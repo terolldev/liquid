@@ -106,27 +106,18 @@ class InfoCommand(commands.Cog):
       cr_2 = format_dt(inter.guild.created_at, 'R')
 
       if afk_c == None:
-        
-        embed=disnake.Embed(title=f"> 🏜️ | Информация о сервере {inter.guild.name}", description=f"**ID:** {inter.guild.id}", color=0x2e2f33, timestamp=datetime.datetime.now())
-        embed.add_field(name='👥 **| Участники:**', value=f'**Всего:** `{total_member}/{max_member}`\n**Боты:** `{bot}`\n**Участники:** `{totals_members}`\n**Влaделец:** <@!{inter.guild.owner_id}>', inline=True)
-        embed.add_field(name='⚓ **| Каналы:**', value=f'**Всего категорий:** `{cat1}`\n**Всего Каналов:** `{total_channel}`\n**Текстовые:** `{len(inter.guild.text_channels)}`\n**Голосовые:** `{voice_channel}`\n**Трибун:** `{len(inter.guild.stage_channels)}`\n', inline=True)
-        embed.add_field(name='🔖 **| Информация:**', value=f'**Кол-во ролей:** `{roles}`\n**Эмоджи:** `{len(inter.guild.emojis)}`\n**Стикеры:** `{len(inter.guild.stickers)}`', inline=True)
-        embed.add_field(name='🚀 **| Бусты:**', value=f'**Кол-во бустов:** `{inter.guild.premium_subscription_count}`\n**Уровень буста:** `{inter.guild.premium_tier}`\n**Шкала прогресса бустов:** `{bar}`', inline=True)
-        embed.add_field(name='🔧 **| Прочее:**', value=f'**Проверка сервера:** `{ha}`\n**Макс размер файлов:** `{file}мб`\n**Дата создание сервера:** \n{cr_1} \n({cr_2})', inline=True)
-        embed.set_thumbnail(url=inter.guild.icon)
-        embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")   
-        await inter.response.send_message(embed=embed)
-        
-      else:    
-        embed=disnake.Embed(title=f"> 🏜️ | Информация о сервере {inter.guild.name}", description=f"**ID:** {inter.guild.id}", color=0x2e2f33, timestamp=datetime.datetime.now())
-        embed.add_field(name='👥 **| Участники:**', value=f'**Всего:** `{total_member}/{max_member}`\n**Боты:** `{bot}`\n**Участники:** `{totals_members}`\n**Влaделец:** <@!{inter.guild.owner_id}>', inline=True)
-        embed.add_field(name='⚓ **| Каналы:**', value=f'**Всего категорий:** `{len(inter.guild.categories)}`\n**Всего:** `{total_channel}`\n**Текстовые:** `{len(inter.guild.text_channels)}`\n**Голосовые:** `{voice_channel}`\n**Трибун:** `{len(inter.guild.stage_channels)}`\n**Афк канал**: {afk_c.mention}\n', inline=True)
-        embed.add_field(name='🔖 **| Информация:**', value=f'**Кол-во ролей:** `{roles}`\n**Эмоджи:** `{len(inter.guild.emojis)}`\n**Стикеры:** `{len(inter.guild.stickers)}`', inline=True)
-        embed.add_field(name='🚀 **| Бусты:**', value=f'**Кол-во бустов:** `{inter.guild.premium_subscription_count}`\n**Уровень буста:** `{inter.guild.premium_tier}`\n**Шкала прогресса бустов:** `{bar}`', inline=True)
-        embed.add_field(name='🔧 **| Прочее:**', value=f'**Проверка сервера:** `{ha}`\n**Макс размер файлов:** `{file}мб`\n**Дата создание сервера:** \n{cr_1} \n({cr_2})', inline=True)
-        embed.set_thumbnail(url=inter.guild.icon)
-        embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
-        await inter.response.send_message(embed=embed)
+           afk_c = afk_c.mention
+      else:
+           afk_c = "`None`"
+      embed=disnake.Embed(title=f"> 🏜️ | Информация о сервере {inter.guild.name}", description=f"**ID:** {inter.guild.id}", color=0x2e2f33, timestamp=datetime.datetime.now())
+      embed.add_field(name='👥 **| Участники:**', value=f'**Всего:** `{total_member}/{max_member}`\n**Боты:** `{bot}`\n**Участники:** `{totals_members}`\n**Влaделец:** <@!{inter.guild.owner_id}>', inline=True)
+      embed.add_field(name='⚓ **| Каналы:**', value=f'**Всего категорий:** `{len(inter.guild.categories)}`\n**Всего:** `{total_channel}`\n**Текстовые:** `{len(inter.guild.text_channels)}`\n**Голосовые:** `{voice_channel}`\n**Трибун:** `{len(inter.guild.stage_channels)}`\n**Афк канал**: {afk_c}\n', inline=True)
+      embed.add_field(name='🔖 **| Информация:**', value=f'**Кол-во ролей:** `{roles}`\n**Эмоджи:** `{len(inter.guild.emojis)}`\n**Стикеры:** `{len(inter.guild.stickers)}`', inline=True)
+      embed.add_field(name='🚀 **| Бусты:**', value=f'**Кол-во бустов:** `{inter.guild.premium_subscription_count}`\n**Уровень буста:** `{inter.guild.premium_tier}`\n**Шкала прогресса бустов:** `{bar}`', inline=True)
+      embed.add_field(name='🔧 **| Прочее:**', value=f'**Проверка сервера:** `{ha}`\n**Макс размер файлов:** `{file}мб`\n**Дата создание сервера:** \n{cr_1} \n({cr_2})', inline=True)
+      embed.set_thumbnail(url=inter.guild.icon)
+      embed.set_footer(text=f"{inter.author}", icon_url=f"{inter.author.avatar}")
+      await inter.response.send_message(embed=embed)
 
     @bot.user_command(name="Информация о боте")
     async def user_try(self, inter, user: disnake.User):   
